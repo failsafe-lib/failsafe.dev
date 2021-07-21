@@ -1,0 +1,4 @@
+<nav role="navigation" class="side-nav" aria-label="Main navigation">
+  {% capture sidemenu %}{% include side-menu.md %}{% endcapture %}
+  {{ sidemenu | markdownify }}
+</nav>

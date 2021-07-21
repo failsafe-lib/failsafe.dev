@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+//
+// Styles for rendered markdown in the .main-content container
+//
+// stylelint-disable selector-no-type, max-nesting-depth, selector-max-compound-selectors, selector-max-type
+
+.page-content {
+  line-height: $content-line-height;
+
+  a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5em;
+  }
+
+  ul.columns {
+    overflow: hidden;
+    padding-left: 0px;
+
+    li {
+      float: left;
+      display: inline;
+      width: 100%;
+    }
+
+    @include mq(md) {
+      li {
+        width: 50%;
+      }
+    }
+
+    @include mq(lg) {
+      li {
+        width: 33.333%;
+      }
+    }
+  }
+
+  ol {
+    > li {
+      list-style-type: disc;
+    }
+  }
+
+  .task-list {
+    padding-left: 0;
+  }
+
+  .task-list-item {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+    }
+  }
+
+  .task-list-item-checkbox {
+    margin-right: 0.6em;
+  }
+
+  hr + * {
+    margin-top: 0;
+  }
+
+  h1:first-of-type {
+    margin-top: -4px;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
+
+  dt,
+  dd {
+    margin: 0.25em 0;
+  }
+
+  dt {
+    text-align: right;
+
+    &::after {
+      content: ":";
+    }
+  }
+
+  dd {
+    margin-left: 1em;
+    font-weight: 500;
+  }
+
+  .anchor-heading {
+    position: absolute;
+    right: -$sp-3;
+    width: $sp-5;
+    height: 100%;
+    overflow: visible;
+    fill: $link-color;
+    visibility: hidden;
+
+    @include mq(md) {
+      right: auto;
+      left: -$sp-5;
+    }
+  }
+
+  h1:hover > .anchor-heading,
+  h2:hover > .anchor-heading,
+  h3:hover > .anchor-heading,
+  h4:hover > .anchor-heading,
+  h5:hover > .anchor-heading,
+  h6:hover > .anchor-heading {
+    visibility: visible;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    position: relative;
+  }
+}
