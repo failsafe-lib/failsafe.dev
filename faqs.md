@@ -46,5 +46,6 @@ If you have specific failure handling configuration and also want to handle `Tim
 
 As with `TimeoutExceededException` described above, if you configure specific [result or failure handlers][FailurePolicy] you may need to ensure that `CircuitBreakerOpenException` is configured to be handled.
 
-[FailurePolicy]: https://jodah.net/failsafe/javadoc/net/jodah/failsafe/FailurePolicy.html
+[FailurePolicy]: {{ site.url }}/javadoc/net/jodah/failsafe/FailurePolicy.html
+
 {% include common-links.html %}

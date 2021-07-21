@@ -144,11 +144,11 @@ if (breaker.allowsExecution()) {
 
 Failsafe's internal [CircuitBreaker] implementation is space and time efficient, utilizing a single circular data structure to record execution results. Recording an execution and evaluating a threshold is an _O(1)_ operation, regardless of the thresholding capacity.
 
-[remaining-delay]: https://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getRemainingDelay--
-[breaker-execution-count]: http://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getExecutionCount--
-[breaker-success-count]: http://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getSuccessCount--
-[breaker-failure-count]: http://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getFailureCount--
-[breaker-success-rate]: http://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getSuccessRate--
-[breaker-failure-rate]: http://jodah.net/failsafe/javadoc/net/jodah/failsafe/CircuitBreaker.html#getFailureRate--
+[remaining-delay]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getRemainingDelay--
+[breaker-execution-count]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getExecutionCount--
+[breaker-success-count]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getSuccessCount--
+[breaker-failure-count]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getFailureCount--
+[breaker-success-rate]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getSuccessRate--
+[breaker-failure-rate]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#getFailureRate--
 
 {% include common-links.html %}

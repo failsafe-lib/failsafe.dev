@@ -9,7 +9,7 @@ title: Who's Using Failsafe
 1. TOC
 {:toc}
 
-Many projects, organizations, and governments use Failsafe. If you're a happy user, feel free to [edit this page](https://github.com/jhalterman/failsafe/edit/gh-pages/whos-using.md) and add your project or organization.
+Many projects, organizations, and governments use Failsafe. If you're a happy user, feel free to [edit this page]({{ site.web-github-url }}/edit/master/whos-using.md) and add your project or organization.
 
 ## Projects
 
