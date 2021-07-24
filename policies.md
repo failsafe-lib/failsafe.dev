@@ -58,8 +58,8 @@ That said, it really depends on how the policies are being used, and different c
 Read about the built-in policies that Failsafe supports:
 
 - [Retry][retry]
+- [Circuit Breaker][circuit-breakers]
 - [Timeout][timeouts]
 - [Fallback][fallbacks]
-- [Circuit Breaker][circuit-breakers]
 
 {% include common-links.html %}

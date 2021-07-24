@@ -4,9 +4,9 @@
 - Policies
   - [Policies Overview][policies]
   - [Retry][retry]
+  - [Circuit Breaker][circuit-breakers]
   - [Timeout][timeouts]
   - [Fallback][fallbacks]
-  - [Circuit Breaker][circuit-breakers]
 
 - Features
   - [Schedulers][schedulers]
