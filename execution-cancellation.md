@@ -42,4 +42,10 @@ Failsafe.with(timeout).getAsync(ctx -> {
 });
 ```
 
+## Interruption Support
+
+Failsafe adds interruption support for any [ForkJoinPool][] that is configured as a [scheduler][schedulers], including the [common ForkJoinPool][common-pool] which is used by default. This means asynchronous tasks which are not normally interruptable outside of Failsafe can become interruptable when using Failsafe. 
+
+The one exception is when using the [async API integration][async-api] methods. Since those methods depend on external executors, which Failsafe has no knowledge of, those external tasks cannot be cancelled or interrupted by Failsafe.
+
 {% include common-links.html %}
