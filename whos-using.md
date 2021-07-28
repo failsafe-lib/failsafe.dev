@@ -64,6 +64,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Elastic](https://www.elastic.co)
 * [Electric Cloud](https://electric-cloud.com/)
 * [EVRYTHNG](http://evrythng.com)
+* [Gradle](https://gradle.org/)
 * [Grakn Labs](https://grakn.ai)
 * [Groupon](https://www.groupon.com/)
 * [GRyCAP](http://www.grycap.upv.es)
