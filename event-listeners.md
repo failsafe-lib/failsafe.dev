@@ -60,4 +60,8 @@ Many event listeners are based on whether an execution result is a success or fa
 
 An execution is considered a success for a policy if the supplied result is a success, or if it was a failure but the policy was able to produce a successful result. An execution is considered a failure for a policy if the supplied result is a failure _and_ the policy was unable to produce a successful result through its handling.
 
+## Alternative Execution Results
+
+Event listeners are meant for side effects such as logging. They do not influence the outcome of an execution, and any exceptions thrown from an event listener are ignored. To provide an alternative execution result, use a [Fallback][fallbacks].
+
 {% include common-links.html %}

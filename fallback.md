@@ -49,6 +49,8 @@ fallback
   .handleResult(null);
 ```
 
+When using a Fallback in combination with another policy, it's common to configure both to handle the same failures.
+
 ## Event Listeners
 
 [Fallbacks] support event listeners that can tell you when an execution attempt failed:
