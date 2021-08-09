@@ -21,7 +21,7 @@ You can also [interrupt] an execution if it times out:
 timeout.withInterrupt(true);
 ```
 
-If a cancellation is triggered by a `Timeout`, the execution is completed with `TimeoutExceededException`. See the [execution cancellation][execution-cancellation] section for more on cancellation.
+If a cancellation is triggered by a `Timeout`, the execution is completed with `TimeoutExceededException`. See the [execution cancellation][execution-cancellation] section for more on cancellation and interruption.
 
 ## Timeouts with Retries
 
