@@ -27,6 +27,8 @@ policy
   .handleResultIf(result -> result == null);  
 ```
 
+When multiple handle methods are configured, they are logically OR'ed.
+
 ## Policy Composition
 
 Policies can be composed in any way desired, including multiple policies of the same type. Policies handle execution results in reverse order, similar to the way that function composition works. For example, consider:
