@@ -9,17 +9,19 @@ title: Frequently Asked Questions
 1. TOC
 {:toc}
 
-## Does Failsafe create threads?
+## How does Failsafe use threads?
 
-Failsafe requires the use of separate threads for two different purposes:
+Failsafe requires the use of separate threads for a few different situations:
 
-- Immediate async executions and async `Fallback` calls
-- Scheduled async retries and any `Timeout` check
+- Async executions and retries
+- Async `Fallback` calls
+- `Timeout` checks
 
+For async executions, async retries, and async fallbacks, you can supply your own `Executor`, `ExecutorService`, `ScheduledExecutorService`, or `Scheduler` via `FailsafeExecutor.with()` which Failsafe will use. If no executor is configured, Failsafe will use the `ForkJoinPool.commonPool` for these purposes. 
 
-For async executions, you can supply your own executor via `FailsafeExecutor.with()`. If no executor is configured, Failsafe will use the `ForkJoinPool.commonPool` for performing async executions.
+`Timeout` checks are always performed using the `ForkJoinPool.commonPool` so that they are not blocked if the configured executor or Scheduler are fully utilized.
 
-For scheduling retries and performing `Timeout` checks, Failsafe requires a `ScheduledExecutorService` or `Scheduler` be configured via `FailsafeExecutor.with()`. If none is provided, Failsafe with create and use a single threaded `ScheduledExecutorService` internally. This scheduler delegates executions to the configured executor or `commonPool`, will only be created if needed, and is shared across all Failsafe instances that don't configure a scheduler.
+For async work that needs to be scheduled with a delay, Failsafe will either use a `ScheduledExecutorService` or `Scheduler` if one has been configured, else it will create a single threaded `ScheduledExecutorService` internally. This scheduler delegates executions to the configured executor or `commonPool`, will only be created if needed, and is shared across all Failsafe instances that don't configure a scheduler.
 
 If no executor or scheduler is configured and the `ForkJoinPool.commonPool` has a parallelism of 1 (which occurs when the number of processors is <= 2), Failsafe will create and use an internal `ForkJoinPool` with a parallelism of 2 instead. This is necessary to support concurrent execution and `Timeout` checks. As with the internal `ScheduledExecutorService`, this  `ForkJoinPool` will only be created if needed, and will be shared across all Failsafe instances that don't configure an executor.
 
