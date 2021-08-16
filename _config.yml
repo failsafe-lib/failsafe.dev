@@ -1,6 +1,6 @@
 title: Failsafe
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://failsafe-lib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://failsafe.dev" # the base hostname & protocol for your site, e.g. http://example.com
 github-url: https://github.com/failsafe-lib/failsafe
 web-github-url: https://github.com/failsafe-lib/failsafe-lib.github.io
 permalink: pretty
