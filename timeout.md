@@ -37,6 +37,10 @@ When a `Timeout` is [composed][policy-composition] _inside_ a `RetryPolicy`, a t
 Failsafe.with(retryPolicy, timeout).run(this::connect);
 ```
 
+## Async Execution Timeouts
+
+When an async executions times out, Failsafe still waits until the execution completes, either through interruption or naturally, before recording a `TimeoutExceededException`. This avoids the risk of retrying while the original execution is still running, which ultimately could lead to numerous abandoned executions running in numerous threads.
+
 ## Event Listeners
 
 [Timeouts] support the standard [policy listeners][PolicyListeners] which can notify you when a timeout is exceeded:
