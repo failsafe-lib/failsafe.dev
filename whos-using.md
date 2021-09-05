@@ -19,6 +19,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Apache Pulsar](https://pulsar.apache.org/)
 * [Apache Samza](http://samza.apache.org/)
 * [Apache Unomi](https://unomi.apache.org/)
+* [CDAP](https://cdap.io/)
 * [Distributed Data Framework](http://codice.org/ddf/)
 * [Divolte Collector](https://divolte.io/)
 * [Eclipse CBI](https://projects.eclipse.org/projects/technology.cbi)
@@ -42,6 +43,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 {:.columns}
 * [52North](https://www.52north.org)
 * [Adobe](https://www.adobe.com/)
+* [Adorsys](https://adorsys.com/de/)
 * [Allegro Tech](http://allegro.tech/open-source/)
 * [Amazon](https://www.amazon.com/)
 * [Apple](https://www.apple.com/)
@@ -50,8 +52,10 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Axamit](http://axamit.com)
 * [B2i Healthcare](http://b2i.sg)
 * [Bonitasoft](https://www.bonitasoft.com/)
+* [Boomi](https://boomi.com/)
 * [Brightcove](https://www.brightcove.com)
 * [CGI](https://www.cgi.com)
+* [Camunda]( http://camunda.com)
 * [CircleCI](https://circleci.com)
 * [Cisco](https://www.cisco.com/)
 * [CloudWise](http://www.cloudwise.com)
@@ -91,9 +95,10 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Paradoxical](http://paradoxical.io/)
 * [Pivotal](https://pivotal.io/)
 * [Paychex](https://www.paychex.com/)
-* [Rally Health](https://www.rallyhealth.com/)
 * [Rackspace](https://www.rackspace.com/)
 * [Redhat](https://www.redhat.com)
+* [Rakam](https://rakam.io/)
+* [Rally Health](https://www.rallyhealth.com/)
 * [Sailthru](http://www.sailthru.com/)
 * [Salesforce](https://www.salesforce.com/)
 * [SAP](https://www.sap.com)
@@ -118,13 +123,15 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Zalando](https://tech.zalando.com/)
 * [Zanata](http://zanata.org/)
 
-## Government
+## Government / Education / Research
 
 {:.columns}
 * [Denmark - DBC](https://www.dbc.dk)
 * [EU - UniProt](http://www.uniprot.org)
+* [HHMI Janiela](https://www.janelia.org/)
 * [UK - ONS](https://www.ons.gov.uk/)
 * [UK - DSTL](https://www.gov.uk/dstl)
 * [USA - LLNL](https://software.llnl.gov)
+* [UW Madison](https://www.library.wisc.edu)
 
 {% include common-links.html %}
