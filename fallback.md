@@ -53,7 +53,7 @@ When using a Fallback in combination with another policy, it's common to configu
 
 ## Event Listeners
 
-[Fallbacks] support event listeners that can tell you when an execution attempt failed:
+[Fallbacks] support event listeners that can tell you when the last execution attempt failed:
 
 ```java
 fallback.onFailedAttempt(e -> log.error("Connection failed", e.getLastFailure()))
