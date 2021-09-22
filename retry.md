@@ -94,7 +94,7 @@ retryPolicy
 
 ## Event Listeners
 
-In addition to the standard [policy listeners][policy-listeners], a [RetryPolicy] can notify you when an execution attempt fails or before a retry is performed:
+In addition to the standard [policy listeners][policy-listeners], a [RetryPolicy] can notify you when an execution attempt fails or before a retry is to be attempted:
 
 ```java
 retryPolicy
@@ -106,6 +106,12 @@ It can notify you when an execution fails and the max retries are [exceeded][ret
 
 ```java
 retryPolicy.onRetriesExceeded(e -> log.warn("Failed to connect. Max retries exceeded."));
+```
+
+When an async retry is scheduled to be attempted after the configured delay:
+
+```java
+retryPolicy.onRetryScheduled(e -> log.info("Connection retry scheduled {}.", e.getFailure()));
 ```
 
 Or when retries have been aborted:
