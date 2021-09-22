@@ -44,7 +44,7 @@ Failsafe.with(retryPolicy, circuitBreaker)
 
 ## Policy Listeners
 
-At the policy level, Failsafe can notify you when an execution succeeds or fails for a particular policy:
+At the policy level, Failsafe can notify you when an execution succeeds or fails for a particular policy, according to its [failure handling configuration][failure-handling]:
 
 ```java
 policy

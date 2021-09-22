@@ -1,11 +1,13 @@
 ---
 layout: default
-title: Execution Tracking
+title: Standalone Execution
 ---
 
-# Execution Tracking
+# Standalone Execution
 
-In addition to automatically performing retries, Failsafe can be used to track executions for you, allowing you to manually retry as needed:
+While the [Failsafe] class automatically performs executions, including retries, according to the configured policies, the [Execution] class can be used for situations where you need to control executions and retries yourself. 
+
+An [Execution] can be used to record results and determine whether the execution is considered complete according to the configured policies, else if you should retry:
 
 ```java
 Execution execution = new Execution(retryPolicy);
@@ -19,7 +21,7 @@ while (!execution.isComplete()) {
 }
 ```
 
-Execution tracking is also useful for integrating with APIs that have their own retry mechanism:
+An [Execution] is also useful for integrating with APIs that have their own retry mechanism:
 
 ```java
 Execution execution = new Execution(retryPolicy);

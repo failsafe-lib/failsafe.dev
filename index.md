@@ -34,7 +34,7 @@ Connection connection = Failsafe.with(retryPolicy).get(() -> connect());
 
 ### Asynchronous Execution
 
-Executing a `Runnable` or `Supplier` asynchronously *with* a policy is simple:
+Executing a `Runnable` or `Supplier` [asynchronously][async-execution] *with* a policy is simple:
 
 ```java
 // Run with retries asynchronously

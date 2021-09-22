@@ -21,7 +21,7 @@ You can also [interrupt] an execution if it times out:
 timeout.withInterrupt(true);
 ```
 
-If a cancellation is triggered by a `Timeout`, the execution is completed with `TimeoutExceededException`. See the [execution cancellation][execution-cancellation] section for more on cancellation and interruption.
+If a cancellation is triggered by a `Timeout`, the execution is completed with `TimeoutExceededException`. See the [execution cancellation][execution-cancellation] page for more on cancellation and interruption.
 
 ## Timeouts with Retries
 
@@ -54,5 +54,9 @@ Or when an execution completes and the timeout is not exceeded:
 ```java
 timeout.onSuccess(e -> log.info("Execution completed on time"));
 ```
+
+## Limitations
+
+Since the [async integration][async-integration] methods involve external threads, which Failsafe has no knowledge of, these executions cannot be directly cancelled or interrupted by a Timeout. But, these executions can still [cooperate][cooperative-cancellation] with a Timeout cancellation.
 
 {% include common-links.html %}

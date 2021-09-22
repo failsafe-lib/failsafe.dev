@@ -15,16 +15,17 @@
 [circuit-breaker-listeners]: {{ "/circuit-breaker#event-listeners" | relative_url }}
 [circuit-breaker-standalone]: {{ "/circuit-breaker#standalone-usage" | relative_url }}
 
-[schedulers]: {{ "/schedulers" | relative_url }}
+[async-execution]: {{ "/async-execution" | relative_url }}
+[async-integration]: {{ "/async-execution#async-integration" | relative_url }}
+[executor-configuration]: {{ "/async-execution#executor-configuration" | relative_url }}
 [event-listeners]: {{ "/event-listeners" | relative_url }}
 [policy-listeners]: {{ "/event-listeners#policy-listeners" | relative_url }}
-[strong-typing]: {{ "/strong-typing" | relative_url }}
 [execution-context]: {{ "/execution-context" | relative_url }}
 [execution-cancellation]: {{ "/execution-cancellation" | relative_url }}
-[async-api]: {{ "/async-api" | relative_url }}
-[completion-stage]: {{ "/completionstage" | relative_url }}
-[functional-interface]: {{ "/functional-interface" | relative_url }}
-[execution-tracking]: {{ "/execution-tracking" | relative_url }}
+[cooperative-cancellation]: {{ "/execution-cancellation#cooperative-cancellation" | relative_url }}
+[interruption-support]: {{ "/execution-cancellation#interruption-support" | relative_url }}
+[standalone-execution]: {{ "/standalone-execution" | relative_url }}
+[strong-typing]: {{ "/strong-typing" | relative_url }}
 [policy-spi]: {{ "/policy-spi" | relative_url }}
 [policy-executor-impls]: {{ site.github-url }}/tree/master/src/main/java/net/jodah/failsafe
 
@@ -37,6 +38,7 @@
 
 <!-- Failsafe Javadocs - Classes -->
 
+[Failsafe]: {{ site.url }}/javadoc/net/jodah/failsafe/Failsafe.html
 [FailsafeExecutor]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html
 [Policy]: {{ site.url }}/javadoc/net/jodah/failsafe/Policy.html
 [PolicyListeners]: {{ site.url }}/javadoc/net/jodah/failsafe/PolicyListeners.html
@@ -55,6 +57,14 @@
 
 <!-- Failsafe Javadocs - Methods -->
 
+[withExecutor]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#with-java.util.concurrent.Executor-
+[runAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#runAsync-net.jodah.failsafe.function.CheckedRunnable-
+[getAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getAsync-net.jodah.failsafe.function.CheckedSupplier-
+[getStageAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getStageAsync-net.jodah.failsafe.function.CheckedSupplier-
+[runAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#runAsyncExecution-net.jodah.failsafe.function.AsyncRunnable-
+[getAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
+[getStageAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getStageAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
+
 [backoff]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withBackoff-long-long-java.time.temporal.ChronoUnit-
 [computed-delay]: {{ site.url }}/javadoc/net/jodah/failsafe/DelayablePolicy.html#withDelay-net.jodah.failsafe.function.DelayFunction-
 [random-delay]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withDelay-long-long-java.time.temporal.ChronoUnit-
@@ -64,11 +74,9 @@
 [max-duration]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withMaxDuration-java.time.Duration-
 [jitter-duration]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withJitter-java.time.Duration-
 [jitter-factor]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withJitter-double-
-[breaker-timeout]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#withTimeout-java.time.Duration-
-[runAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#runAsyncExecution-net.jodah.failsafe.function.AsyncRunnable-
-[getAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
-[getStageAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getStageAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
 [retries-exceeded]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#onRetriesExceeded-net.jodah.failsafe.function.CheckedConsumer-
+
+[breaker-timeout]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#withTimeout-java.time.Duration-
 
 <!-- JDK Javadocs -->
 
@@ -80,6 +88,7 @@
 [CompletableFuture]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
 [CompletionStage]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html 
 [ScheduledExecutorService]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html
+[Executor]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html
 [ExecutorService]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html
 [InterruptedException]: https://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html
 [interrupt]: {{ site.url }}/javadoc/net/jodah/failsafe/Timeout.html#withInterrupt-boolean-

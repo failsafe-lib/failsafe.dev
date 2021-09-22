@@ -9,25 +9,22 @@
   - [Fallback][fallbacks]
 
 - Features
-  - [Schedulers][schedulers]
+  - [Async Execution][async-execution]
   - [Event Listeners][event-listeners]
-  - [Strong Typing][strong-typing]
   - [Execution Context][execution-context]
   - [Execution Cancellation][execution-cancellation]
-  - [Async API Support][async-api]
-  - [CompletionStage Support][completion-stage]
-  - [Functional Interface Support][functional-interface]
-  - [Execution Tracking][execution-tracking]
+  - [Standalone Execution][standalone-execution]
+  - [Strong Typing][strong-typing]
   - [Policy SPI][policy-spi]
 
 - Resources
   - [Javadocs][javadoc]
-  - [FAQs]({{ "/faqs" | relative_url }})
   - [Gitter Chat][gitter]
-  - [Example Integrations]({{ "/example-integrations" | relative_url }})
-  - [Third Party Tools]({{ "/third-party-tools" | relative_url }})
   - [Comparisons]({{ "/comparisons" | relative_url }})
   - [Who's Using Failsafe]({{ "/whos-using" | relative_url }})
+  - [FAQs]({{ "/faqs" | relative_url }})
+  - [Example Integrations]({{ "/example-integrations" | relative_url }})
+  - [Third Party Tools]({{ "/third-party-tools" | relative_url }})
   - [Talks]({{ "/talks" | relative_url }})
 
 {% include common-links.html %}

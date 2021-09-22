@@ -17,7 +17,7 @@ Failsafe requires the use of separate threads for a few different situations:
 - Async `Fallback` calls
 - `Timeout` checks
 
-For async executions, async retries, and async fallbacks, you can supply your own `Executor`, `ExecutorService`, `ScheduledExecutorService`, or `Scheduler` via `FailsafeExecutor.with()` which Failsafe will use. If no executor is configured, Failsafe will use the `ForkJoinPool.commonPool` for these purposes. 
+For async executions, async retries, and async fallbacks, you can supply your own `ScheduledExecutorService`, `Executor`, or `Scheduler` via `FailsafeExecutor.with()` which Failsafe will use. If no executor is configured, Failsafe will use the `ForkJoinPool.commonPool` for these purposes. 
 
 `Timeout` checks are always performed using the `ForkJoinPool.commonPool` so that they are not blocked if the configured executor or Scheduler are fully utilized.
 
