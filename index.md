@@ -49,14 +49,15 @@ CompletableFuture<Connection> future = Failsafe.with(retryPolicy).getAsync(() ->
 Multiple [policies] can be created and arbitrarily composed to add additional layers of resilience or to handle different failures in different ways:
 
 ```java
-CircuitBreaker<Object> circuitBreaker = new CircuitBreaker<>();
 Fallback<Object> fallback = Fallback.of(this::connectToBackup);
+CircuitBreaker<Object> circuitBreaker = new CircuitBreaker<>();
+Timeout<Object> timeout = Timeout.of(Duration.ofSeconds(10));
 
-// Get with circuit breaker, retries and fallback
-Failsafe.with(fallback, retryPolicy, circuitBreaker).get(this::connect);
+// Get with fallback, retries, circuit breaker, and timeout
+Failsafe.with(fallback, retryPolicy, circuitBreaker, timeout).get(this::connect);
 ```
 
-Order does matter when composing policies. See the [policy composition][policy-composition] section for more details.
+Order does matter when composing policies. See the [policy composition][policy-composition] overview for more details.
 
 ### Failsafe Executor
 
