@@ -45,12 +45,20 @@ Failsafe.with(retryPolicy)
 
 ## Executor Configuration
 
-By default, Failsafe performs async executions using the [ForkJoinPool]'s [common pool][common-pool], but you can also configure a specific [ScheduledExecutorService], [Executor], or custom [Scheduler] to use:
+By default, Failsafe performs async executions using the [ForkJoinPool]'s [common pool][common-pool], but you can also configure a specific [ScheduledExecutorService], [ExecutorService], or [Executor] to use:
 
 ```java
-Failsafe.with(policy).with(scheduler).getAsync(this::connect);
+Failsafe.with(policy).with(executor).getAsync(this::connect);
 ```
 
-See the [Vert.x example][Vert.x] for an example implementation of a [Scheduler].
+## Custom Schedulers
+
+Failsafe can integrate with libraries that use their own schedulers for async executions, such as [Akka](https://akka.io) or [Vert.x](https://vertx.io), by supporting a custom [Scheduler]:
+
+```java
+Failsafe.with(policy).with(akkaScheduler).getAsync(this::connect);
+```
+
+See the [Vert.x example][Vert.x] of a custom scheduler implementation.
 
 {% include common-links.html %}

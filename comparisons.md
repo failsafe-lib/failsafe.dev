@@ -23,7 +23,7 @@ Failsafe and Resilience4j are similar libraries in what they aim to offer users.
 
 - Failsafe offers [async execution][async-execution] support for and any [Runnable], [Supplier], or [CompletionStage], and any policy combination. Resilience4j offers async support for some policies via decorated CompletionStages.
 - Failsafe offers [async integration][async-integration] support.
-- Failsafe offers [configurable executors][executor-configuration].
+- Failsafe offers [configurable executors][executor-configuration] and [custom schedulers][custom-schedulers].
 - Failsafe offers [cancellation and interruption][execution-cancellation] support for all sync and async executions. Resilience4j supports cancellation via decorated CompletionStages.
 - Failsafe provides [interruption support][interruption-support] for executions that run in a [ForkJoinPool] such as CompletableFutures. Resilience4j decorated CompletionStages cannot be interrupted.
 
