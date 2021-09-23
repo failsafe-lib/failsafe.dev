@@ -10,11 +10,10 @@ While the [Failsafe] class automatically performs executions, including retries,
 An [Execution] can be used to record results and determine whether the execution is considered complete according to the configured policies, else if you should retry:
 
 ```java
-Execution execution = new Execution(retryPolicy);
+Execution<Connection> execution = new Execution<>(retryPolicy);
 while (!execution.isComplete()) {
   try {
-    doSomething();
-    execution.complete();
+    execution.recordResult(connect());
   } catch (ConnectException e) {
     execution.recordFailure(e);
   }
@@ -24,11 +23,12 @@ while (!execution.isComplete()) {
 An [Execution] is also useful for integrating with APIs that have their own retry mechanism:
 
 ```java
-Execution execution = new Execution(retryPolicy);
+Execution<Connection> execution = new Execution<>(retryPolicy);
 
 // On failure
-if (execution.canRetryOn(someFailure))
-  service.scheduleRetry(execution.getWaitTime().toNanos(), TimeUnit.MILLISECONDS);
+execution.recordFailure(connectException);
+if (!execution.isComplete())
+  service.scheduleRetry(execution.getDelay());
 ```
 
 See the [RxJava example][RxJava] for a more detailed implementation.

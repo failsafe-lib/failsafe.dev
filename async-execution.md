@@ -34,13 +34,15 @@ Failsafe.with(retryPolicy)
 Failsafe can also integrate with threads that are outside of its control. The [runAsyncExecution], [getAsyncExecution] and [getStageAsyncExecution] methods provide an [AsyncExecution] object that can be used to record execution results from another thread:
 
 ```java
-Failsafe.with(retryPolicy)
-  .getAsyncExecution(execution -> service.connect().whenComplete((result, failure) -> {
-    if (execution.complete(result, failure))
-      log.info("Connected");
-    else if (!execution.retry())
-      log.error("Connection attempts failed", failure);
-  }));
+Failsafe.with(retryPolicy).getAsyncExecution(execution -> {
+  // A method that runs in a different thread
+  service.connectAsync().whenComplete((connection, failure) -> {
+    if (failure != null)
+      execution.recordFailure(failure);
+    else
+      execution.recordResult(connection);
+  });
+});
 ```
 
 ## Executor Configuration
