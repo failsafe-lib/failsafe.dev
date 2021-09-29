@@ -45,12 +45,14 @@ Failsafe.with(retryPolicy).getAsyncExecution(execution -> {
 });
 ```
 
-## Executor Configuration
+The execution will be retried, if needed, when a result or failure is recorded.
 
-By default, Failsafe performs async executions using the [ForkJoinPool]'s [common pool][common-pool], but you can also configure a specific [ScheduledExecutorService], [ExecutorService], or [Executor] to use:
+## ExecutorService Configuration
+
+By default, Failsafe performs async executions using the [ForkJoinPool]'s [common pool][common-pool], but you can also configure a specific [ScheduledExecutorService] or [ExecutorService]:
 
 ```java
-Failsafe.with(policy).with(executor).getAsync(this::connect);
+Failsafe.with(policy).with(executorService).getAsync(this::connect);
 ```
 
 ## Custom Schedulers
