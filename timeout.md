@@ -15,10 +15,10 @@ title: Timeout
 Timeout<Object> timeout = Timeout.of(Duration.ofSeconds(10));
 ```
 
-You can also [interrupt] an execution if it times out:
+You can create a Timeout that [imterrupts][interrupt] execution if it times out:
 
 ```java
-timeout.withInterrupt(true);
+Timeout<Object> timeout = Timeout.builder(Duration.ofSeconds(10)).withInterrupt().build();
 ```
 
 If a cancellation is triggered by a `Timeout`, the execution is completed with `TimeoutExceededException`. See the [execution cancellation][execution-cancellation] page for more on cancellation and interruption.
@@ -46,13 +46,13 @@ When an async executions times out, Failsafe still waits until the execution com
 [Timeouts] support the standard [policy listeners][PolicyListeners] which can notify you when a timeout is exceeded:
 
 ```java
-timeout.onFailure(e -> log.error("Connection attempt timed out", e.getFailure()));
+builder.onFailure(e -> log.error("Connection attempt timed out", e.getFailure()));
 ```
 
 Or when an execution completes and the timeout is not exceeded:
 
 ```java
-timeout.onSuccess(e -> log.info("Execution completed on time"));
+builder.onSuccess(e -> log.info("Execution completed on time"));
 ```
 
 ## Limitations

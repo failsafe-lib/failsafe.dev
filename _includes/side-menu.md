@@ -15,7 +15,7 @@
   - [Execution Cancellation][execution-cancellation]
   - [Standalone Execution][standalone-execution]
   - [Strong Typing][strong-typing]
-  - [Policy SPI][policy-spi]
+  - [Extending Failsafe][extending]
 
 - Resources
   - [Javadocs][javadoc]

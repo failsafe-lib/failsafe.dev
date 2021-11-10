@@ -47,7 +47,7 @@ Failsafe.with(retryPolicy, circuitBreaker)
 At the policy level, Failsafe can notify you when an execution succeeds or fails for a particular policy, according to its [failure handling configuration][failure-handling]:
 
 ```java
-policy
+policyBuilder
   .onSuccess(e -> log.info("Connected to {}", e.getResult()))
   .onFailure(e -> log.error("Failed to create connection", e.getFailure()));
 ```

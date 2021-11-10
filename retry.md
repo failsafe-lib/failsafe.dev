@@ -16,13 +16,13 @@ title: Retry
 By default, a [RetryPolicy] will perform a maximum of 3 execution attempts. You can configure a max number of [attempts][max-attempts]:
 
 ```java
-retryPolicy.withMaxAttempts(3);
+builder.withMaxAttempts(3);
 ```
 
 Or a max number of [retries][max-retries]
 
 ```java
-retryPolicy.withMaxRetries(2);
+builder.withMaxRetries(2);
 ```
 
 ## Delays
@@ -30,19 +30,19 @@ retryPolicy.withMaxRetries(2);
 By default, a [RetryPolicy] has no delay between attempts. You can configure a fixed delay:
 
 ```java
-retryPolicy.withDelay(Duration.ofSeconds(1));
+builder.withDelay(Duration.ofSeconds(1));
 ```
 
 Or a delay that [backs off][backoff] exponentially:
 
 ```java
-retryPolicy.withBackoff(1, 30, ChronoUnit.SECONDS);
+builder.withBackoff(1, 30, ChronoUnit.SECONDS);
 ```
 
 A [random delay][random-delay] for some range:
 
 ```java
-retryPolicy.withDelay(1, 10, ChronoUnit.SECONDS);
+builder.withDelay(1, 10, ChronoUnit.SECONDS);
 ```
 
 Or a [computed delay][computed-delay] based on an execution result or failure.
@@ -52,13 +52,13 @@ Or a [computed delay][computed-delay] based on an execution result or failure.
 You can also combine a random [jitter factor][jitter-factor] with a delay:
 
 ```java
-retryPolicy.withJitter(.1);
+builder.withJitter(.1);
 ```
 
 Or a [time based jitter][jitter-duration]:
 
 ```java
-retryPolicy.withJitter(Duration.ofMillis(100));
+builder.withJitter(Duration.ofMillis(100));
 ```
 
 ## Duration
@@ -66,7 +66,7 @@ retryPolicy.withJitter(Duration.ofMillis(100));
 You can add a [max duration][max-duration] for an execution, after which retries will stop:
 
 ```java
-retryPolicy.withMaxDuration(Duration.ofMinutes(5));
+builder.withMaxDuration(Duration.ofMinutes(5));
 ```
 
 To [cancel or interrupt][execution-cancellation] running executions, see the [Timeout][timeouts] policy.
@@ -76,7 +76,7 @@ To [cancel or interrupt][execution-cancellation] running executions, see the [Ti
 You can also specify which results, failures or conditions to [abort retries][abort-retries] on:
 
 ```java
-retryPolicy
+builder
   .abortWhen(true)
   .abortOn(NoRouteToHostException.class)
   .abortIf(result -> result == true)
@@ -87,7 +87,7 @@ retryPolicy
 Like any [FailurePolicy], a [RetryPolicy] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
 
 ```java
-retryPolicy
+builder
   .handle(ConnectException.class)
   .handleResult(null);
 ```
@@ -97,7 +97,7 @@ retryPolicy
 In addition to the standard [policy listeners][policy-listeners], a [RetryPolicy] can notify you when an execution attempt fails or before a retry is to be attempted:
 
 ```java
-retryPolicy
+builder
   .onFailedAttempt(e -> log.error("Connection attempt failed", e.getLastFailure()))
   .onRetry(e -> log.warn("Failure #{}. Retrying.", e.getAttemptCount()));
 ```
@@ -105,19 +105,19 @@ retryPolicy
 It can notify you when an execution fails and the max retries are [exceeded][retries-exceeded]:
 
 ```java
-retryPolicy.onRetriesExceeded(e -> log.warn("Failed to connect. Max retries exceeded."));
+builder.onRetriesExceeded(e -> log.warn("Failed to connect. Max retries exceeded."));
 ```
 
 When an async retry is scheduled to be attempted after the configured delay:
 
 ```java
-retryPolicy.onRetryScheduled(e -> log.info("Connection retry scheduled {}.", e.getFailure()));
+builder.onRetryScheduled(e -> log.info("Connection retry scheduled {}.", e.getFailure()));
 ```
 
 Or when retries have been aborted:
 
 ```java
-retryPolicy.onAbort(e -> log.warn("Connection aborted due to {}.", e.getFailure()));
+builder.onAbort(e -> log.warn("Connection aborted due to {}.", e.getFailure()));
 ```
 
 

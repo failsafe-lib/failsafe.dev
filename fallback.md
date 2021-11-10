@@ -33,10 +33,10 @@ A [CompletionStage] can be supplied as a fallback:
 Fallback<Object> fallback = Fallback.ofStage(this::connectToBackup);
 ```
 
-And for computations that block, a Fallback can be configured to run asynchronously:
+For computations that block, a Fallback can be configured to run asynchronously:
 
 ```java
-Fallback<Object> fallback = Fallback.ofAsync(this::blockingCall);
+Fallback<Object> fallback = Fallback.builder(this::blockingCall).withAsync().build();
 ```
 
 ## Failure Handling
@@ -44,7 +44,7 @@ Fallback<Object> fallback = Fallback.ofAsync(this::blockingCall);
 Like any [FailurePolicy], [Fallbacks] can be configured to handle only [certain results or failures][failure-handling]:
 
 ```java
-fallback
+builder
   .handle(ConnectException.class)
   .handleResult(null);
 ```
@@ -56,19 +56,19 @@ When using a Fallback in combination with another policy, it's common to configu
 [Fallbacks] support event listeners that can tell you when the last execution attempt failed:
 
 ```java
-fallback.onFailedAttempt(e -> log.error("Connection failed", e.getLastFailure()))
+builder.onFailedAttempt(e -> log.error("Connection failed", e.getLastFailure()))
 ```
 
 When the fallback attempt failed:
 
 ```java
-fallback.onFailure(e -> log.error("Failed to connect to backup", e.getFailure()));
+builder.onFailure(e -> log.error("Failed to connect to backup", e.getFailure()));
 ```
 
 Or when the execution or fallback attempt succeeded:
 
 ```java
-fallback.onSuccess(e -> log.info("Connection established"));
+builder.onSuccess(e -> log.info("Connection established"));
 ```
 
 {% include common-links.html %}
