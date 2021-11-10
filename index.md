@@ -3,6 +3,9 @@ layout: default
 title: Fault tolerance and resilience patterns for the JVM
 ---
 
+{: .callout }
+Failsafe 3.0 has been released! See the [changelog](https://github.com/failsafe-lib/failsafe/blob/master/CHANGELOG.md#30) for info on upgrading from 2.x.
+
 # Overview
 
 Failsafe is a lightweight, zero-dependency library for handling failures in Java 8+. It has a concise API for handling everyday use cases and the flexibility to handle everything else. Failsafe works by wrapping executable logic with one or more resilience [policies], which can be combined and [composed][policy-composition] as needed.
@@ -16,10 +19,11 @@ Add the latest [Failsafe dependency][maven] to your project.
 To start, we'll create a [retry policy][retry] that defines which failures should be handled and when retries should be performed:
 
 ```java
-RetryPolicy<Object> retryPolicy = new RetryPolicy<>()
+RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
   .handle(ConnectException.class)
   .withDelay(Duration.ofSeconds(1))
-  .withMaxRetries(3);
+  .withMaxRetries(3)
+  .build();
 ```
 
 We can then execute a `Runnable` or `Supplier` *with* retries:
@@ -46,15 +50,19 @@ CompletableFuture<Connection> future = Failsafe.with(retryPolicy).getAsync(() ->
 
 ### Composing Policies
 
-Multiple [policies] can be created and arbitrarily composed to add additional layers of resilience or to handle different failures in different ways:
+Multiple [policies] can be arbitrarily composed to add additional layers of resilience or to handle different failures in different ways:
 
 ```java
 Fallback<Object> fallback = Fallback.of(this::connectToBackup);
-CircuitBreaker<Object> circuitBreaker = new CircuitBreaker<>();
+CircuitBreaker<Object> circuitBreaker = CircuitBreaker.ofDefaults();
 Timeout<Object> timeout = Timeout.of(Duration.ofSeconds(10));
 
 // Get with fallback, retries, circuit breaker, and timeout
-Failsafe.with(fallback, retryPolicy, circuitBreaker, timeout).get(this::connect);
+Failsafe.with(fallback)
+  .compose(retryPolicy)
+  .compose(circuitBreaker)
+  .compose(timeout)
+  .get(this::connect);
 ```
 
 Order does matter when composing policies. See the [policy composition][policy-composition] overview for more details.
@@ -64,7 +72,7 @@ Order does matter when composing policies. See the [policy composition][policy-c
 Policy compositions can also be saved for later use via a [FailsafeExecutor]:
 
 ```java
-FailsafeExecutor<Object> executor = Failsafe.with(fallback, retryPolicy, circuitBreaker);
+FailsafeExecutor<Object> executor = Failsafe.with(retryPolicy).compose(circuitBreaker);
 executor.run(this::connect);
 ```
 

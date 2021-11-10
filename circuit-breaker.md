@@ -14,11 +14,12 @@ title: Circuit Breaker
 Creating a [CircuitBreaker] is straightforward:
 
 ```java
-CircuitBreaker<Object> breaker = new CircuitBreaker<>()
+CircuitBreaker<Object> breaker = CircuitBreaker.builder()
   .handle(ConnectException.class)
   .withFailureThreshold(3, 10)
   .withSuccessThreshold(5)
-  .withDelay(Duration.ofMinutes(1));
+  .withDelay(Duration.ofMinutes(1))
+  .build();
 ```
 
 ## How it Works
@@ -34,31 +35,31 @@ When the number of recent execution failures exceed a configured threshold, the 
 A *count based* circuit breaker can be configured to *open* when a successive number of executions have failed:
 
 ```java
-breaker.withFailureThreshold(5);
+builder.withFailureThreshold(5);
 ```
 
 Or when, for example, 3 out of the last 5 executions have failed:
 
 ```java
-breaker.withFailureThreshold(3, 5);
+builder.withFailureThreshold(3, 5);
 ```
 
 A *time based* circuit breaker can be configured to *open* when a number of failures occur within a time period:
 
 ```java
-breaker.withFailureThreshold(3, Duration.ofMinutes(1));
+builder.withFailureThreshold(3, Duration.ofMinutes(1));
 ```
 
 Or when a number of failures occur out of a minimum number of executions within a time period:
 
 ```java
-breaker.withFailureThreshold(3, 5, Duration.ofMinutes(1));
+builder.withFailureThreshold(3, 5, Duration.ofMinutes(1));
 ```
 
 It can also be configured to *open* when the percentage rate of failures out of a minimum number of executions exceeds a threshold:
 
 ```java
-breaker.withFailureRateThreshold(20, 5, Duration.ofMinutes(1));
+builder.withFailureRateThreshold(20, 5, Duration.ofMinutes(1));
 ```
 
 ### Half-Opening
@@ -66,7 +67,7 @@ breaker.withFailureRateThreshold(20, 5, Duration.ofMinutes(1));
 After opening, a breaker will delay for 1 minute by default before before transitioning to *half-open*. You can configure a different delay:
 
 ```java
-breaker.withDelay(Duration.ofSeconds(30));
+builder.withDelay(Duration.ofSeconds(30));
 ```
 
 Or a [computed delay][computed-delay] based on an execution result.
@@ -76,13 +77,13 @@ Or a [computed delay][computed-delay] based on an execution result.
 The breaker can be configured to *close* again if a number of trial executions succeed, else it will re-*open*:
 
 ```java
-breaker.withSuccessThreshold(5);
+builder.withSuccessThreshold(5);
 ```
 
 The breaker can also be configured to *close* again if, for example, 3 out of the last 5 executions succeed, else it will re-*open*:
 
 ```java
-breaker.withSuccessThreshold(3, 5);
+builder.withSuccessThreshold(3, 5);
 ```
 
 If a success threshold is not configured, then the failure threshold is used to determine if a breaker should transition from *half-open* to either *closed* or *open*.
@@ -92,7 +93,7 @@ If a success threshold is not configured, then the failure threshold is used to 
 Like any [FailurePolicy], a [CircuitBreaker] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
 
 ```java
-circuitBreaker
+builder
   .handle(ConnectException.class)
   .handleResult(null);
 ```
@@ -102,10 +103,10 @@ circuitBreaker
 In addition to the standard [policy listeners][policy-listeners], a [CircuitBreaker] can notify you when the state of the breaker changes:
 
 ```java
-circuitBreaker
-  .onOpen(() -> log.info("The circuit breaker was opened"))
-  .onClose(() -> log.info("The circuit breaker was closed"))
-  .onHalfOpen(() -> log.info("The circuit breaker was half-opened"));
+builder
+  .onOpen(e -> log.info("The circuit breaker was opened"))
+  .onClose(e -> log.info("The circuit breaker was closed"))
+  .onHalfOpen(e -> log.info("The circuit breaker was half-opened"));
 ```
 
 ## Metrics
@@ -125,9 +126,8 @@ breaker.open();
 breaker.halfOpen();
 breaker.close();
 
-if (breaker.allowsExecution()) {
+if (breaker.tryAcquirePermit()) {
   try {
-    breaker.preExecute();
     doSomething();
     breaker.recordSuccess();
   } catch (Exception e) {
