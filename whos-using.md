@@ -48,6 +48,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Allegro Tech](http://allegro.tech/open-source/)
 * [Amazon](https://www.amazon.com/)
 * [Apple](https://www.apple.com/)
+* [Atlassian](https://www.atlassian.com/)
 * [Atomist](http://atomist.com)
 * [Automation Academy](https://automationacademy.com)
 * [Axamit](http://axamit.com)
