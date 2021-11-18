@@ -187,13 +187,14 @@ var activeTableTab = "activeTableTab";
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/ExecutionContext.html#isFirstAttempt--">isFirstAttempt</a></span>()</code>
-<div class="block">Returns <code>true</code> when <a href="../../dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>getAttemptCount()</code></a> is <code>0</code> meaning this is the first execution attempt.</div>
+<div class="block">Returns <code>true</code> when an execution result has not yet been recorded, meaning this is the first execution
+ attempt.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/ExecutionContext.html#isRetry--">isRetry</a></span>()</code>
-<div class="block">Returns <code>true</code> when <a href="../../dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>getAttemptCount()</code></a> is <code>&gt; 0</code> meaning the execution is being retried.</div>
+<div class="block">Returns <code>true</code> when an execution result has already been recorded, meaning the execution is being retried.</div>
 </td>
 </tr>
 </table>
@@ -239,8 +240,8 @@ var activeTableTab = "activeTableTab";
 <h4>getAttemptCount</h4>
 <pre>int&nbsp;getAttemptCount()</pre>
 <div class="block">Gets the number of execution attempts so far, including attempts that are blocked before being executed, such as
- when a <a href="../../dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe"><code>CircuitBreaker</code></a> is open. Will return <code>0</code> when the first
- attempt is in progress or has yet to begin.</div>
+ when a <a href="../../dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe"><code>CircuitBreaker</code></a> is open. Will return <code>0</code> when the first attempt is in progress or has yet to
+ begin.</div>
 </li>
 </ul>
 <a name="getExecutionCount--">
@@ -250,8 +251,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>getExecutionCount</h4>
 <pre>int&nbsp;getExecutionCount()</pre>
-<div class="block">Gets the number of completed executions so far. Executions that are blocked, such as when a <a href="../../dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe"><code>CircuitBreaker</code></a> is open, are not counted. Will return <code>0</code> when the first
- attempt is in progress or has yet to begin.</div>
+<div class="block">Gets the number of completed executions so far. Executions that are blocked, such as when a <a href="../../dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe"><code>CircuitBreaker</code></a>
+ is open, are not counted. Will return <code>0</code> when the first attempt is in progress or has yet to begin.</div>
 </li>
 </ul>
 <a name="getLastFailure--">
@@ -313,7 +314,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>isFirstAttempt</h4>
 <pre>boolean&nbsp;isFirstAttempt()</pre>
-<div class="block">Returns <code>true</code> when <a href="../../dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>getAttemptCount()</code></a> is <code>0</code> meaning this is the first execution attempt.</div>
+<div class="block">Returns <code>true</code> when an execution result has not yet been recorded, meaning this is the first execution
+ attempt.</div>
 </li>
 </ul>
 <a name="isRetry--">
@@ -323,7 +325,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>isRetry</h4>
 <pre>boolean&nbsp;isRetry()</pre>
-<div class="block">Returns <code>true</code> when <a href="../../dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>getAttemptCount()</code></a> is <code>&gt; 0</code> meaning the execution is being retried.</div>
+<div class="block">Returns <code>true</code> when an execution result has already been recorded, meaning the execution is being retried.</div>
 </li>
 </ul>
 </li>

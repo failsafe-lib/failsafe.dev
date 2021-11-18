@@ -998,7 +998,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/ExecutionContext.html#isFirstAttempt--">isFirstAttempt()</a></span> - Method in interface dev.failsafe.<a href="dev/failsafe/ExecutionContext.html" title="interface in dev.failsafe">ExecutionContext</a></dt>
 <dd>
-<div class="block">Returns <code>true</code> when <a href="dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>ExecutionContext.getAttemptCount()</code></a> is <code>0</code> meaning this is the first execution attempt.</div>
+<div class="block">Returns <code>true</code> when an execution result has not yet been recorded, meaning this is the first execution
+ attempt.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/CircuitBreaker.html#isHalfOpen--">isHalfOpen()</a></span> - Method in interface dev.failsafe.<a href="dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe">CircuitBreaker</a></dt>
 <dd>
@@ -1036,7 +1037,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/ExecutionContext.html#isRetry--">isRetry()</a></span> - Method in interface dev.failsafe.<a href="dev/failsafe/ExecutionContext.html" title="interface in dev.failsafe">ExecutionContext</a></dt>
 <dd>
-<div class="block">Returns <code>true</code> when <a href="dev/failsafe/ExecutionContext.html#getAttemptCount--"><code>ExecutionContext.getAttemptCount()</code></a> is <code>&gt; 0</code> meaning the execution is being retried.</div>
+<div class="block">Returns <code>true</code> when an execution result has already been recorded, meaning the execution is being retried.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/spi/ExecutionResult.html#isSuccess--">isSuccess()</a></span> - Method in class dev.failsafe.spi.<a href="dev/failsafe/spi/ExecutionResult.html" title="class in dev.failsafe.spi">ExecutionResult</a></dt>
 <dd>&nbsp;</dd>
