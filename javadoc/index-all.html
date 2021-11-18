@@ -1104,7 +1104,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/Timeout.html#of-java.time.Duration-">of(Duration)</a></span> - Static method in interface dev.failsafe.<a href="dev/failsafe/Timeout.html" title="interface in dev.failsafe">Timeout</a></dt>
 <dd>
-<div class="block">Alias for:</div>
+<div class="block">Returns a <a href="dev/failsafe/Timeout.html" title="interface in dev.failsafe"><code>Timeout</code></a> that fails an execution with <a href="dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if
+ it exceeds the <code>timeout</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/CircuitBreaker.html#ofDefaults--">ofDefaults()</a></span> - Static method in interface dev.failsafe.<a href="dev/failsafe/CircuitBreaker.html" title="interface in dev.failsafe">CircuitBreaker</a></dt>
 <dd>
@@ -1120,10 +1121,6 @@
 <div class="block">Returns the <code>fallback</code> to be executed if execution fails and allows an alternative exception to be supplied
  instead.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="dev/failsafe/ExecutionContext.html#ofFailure-java.lang.Throwable-">ofFailure(Throwable)</a></span> - Static method in interface dev.failsafe.<a href="dev/failsafe/ExecutionContext.html" title="interface in dev.failsafe">ExecutionContext</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="dev/failsafe/ExecutionContext.html#ofResult-R-">ofResult(R)</a></span> - Static method in interface dev.failsafe.<a href="dev/failsafe/ExecutionContext.html" title="interface in dev.failsafe">ExecutionContext</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/Fallback.html#ofStage-dev.failsafe.function.CheckedSupplier-">ofStage(CheckedSupplier&lt;? extends CompletionStage&lt;R&gt;&gt;)</a></span> - Static method in interface dev.failsafe.<a href="dev/failsafe/Fallback.html" title="interface in dev.failsafe">Fallback</a></dt>
 <dd>
 <div class="block">Returns the <code>fallback</code> to be executed if execution fails.</div>
@@ -1417,7 +1414,8 @@
 <dl>
 <dt><a href="dev/failsafe/Timeout.html" title="interface in dev.failsafe"><span class="typeNameLink">Timeout</span></a>&lt;<a href="dev/failsafe/Timeout.html" title="type parameter in Timeout">R</a>&gt; - Interface in <a href="dev/failsafe/package-summary.html">dev.failsafe</a></dt>
 <dd>
-<div class="block">A policy that cancels and fails an excecution with a <a href="dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if a timeout is exceeded.</div>
+<div class="block">A policy that cancels and fails an excecution with a <a href="dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if a
+ timeout is exceeded.</div>
 </dd>
 <dt><a href="dev/failsafe/TimeoutBuilder.html" title="class in dev.failsafe"><span class="typeNameLink">TimeoutBuilder</span></a>&lt;<a href="dev/failsafe/TimeoutBuilder.html" title="type parameter in TimeoutBuilder">R</a>&gt; - Class in <a href="dev/failsafe/package-summary.html">dev.failsafe</a></dt>
 <dd>

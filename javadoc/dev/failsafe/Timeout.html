@@ -111,8 +111,10 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">Timeout&lt;R&gt;</span>
 extends <a href="../../dev/failsafe/Policy.html" title="interface in dev.failsafe">Policy</a>&lt;R&gt;</pre>
-<div class="block">A policy that cancels and fails an excecution with a <a href="../../dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if a timeout is exceeded. Execution <a href="../../dev/failsafe/TimeoutBuilder.html#withInterrupt--"><code>interruption</code></a> is
- optionally supported. Asynchronous executions are cancelled by calling <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html?is-external=true#cancel-boolean-" title="class or interface in java.util.concurrent"><code>cancel</code></a> on their underlying future. Executions can internally cooperate with cancellation by checking <a href="../../dev/failsafe/ExecutionContext.html#isCancelled--"><code>ExecutionContext.isCancelled()</code></a>.
+<div class="block">A policy that cancels and fails an excecution with a <a href="../../dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if a
+ timeout is exceeded. Execution <a href="../../dev/failsafe/TimeoutBuilder.html#withInterrupt--"><code>interruption</code></a> is optionally supported.
+ Asynchronous executions are cancelled by calling <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html?is-external=true#cancel-boolean-" title="class or interface in java.util.concurrent"><code>cancel</code></a> on their
+ underlying future. Executions can internally cooperate with cancellation by checking <a href="../../dev/failsafe/ExecutionContext.html#isCancelled--"><code>ExecutionContext.isCancelled()</code></a>.
  <p>
  This policy uses a separate thread on the configured scheduler or the common pool to perform timeouts checks.
  <p>
@@ -162,7 +164,8 @@ extends <a href="../../dev/failsafe/Policy.html" title="interface in dev.failsaf
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;R&gt;&nbsp;<a href="../../dev/failsafe/Timeout.html" title="interface in dev.failsafe">Timeout</a>&lt;R&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/Timeout.html#of-java.time.Duration-">of</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;timeout)</code>
-<div class="block">Alias for:</div>
+<div class="block">Returns a <a href="../../dev/failsafe/Timeout.html" title="interface in dev.failsafe"><code>Timeout</code></a> that fails an execution with <a href="../../dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if
+ it exceeds the <code>timeout</code>.</div>
 </td>
 </tr>
 </table>
@@ -211,11 +214,9 @@ extends <a href="../../dev/failsafe/Policy.html" title="interface in dev.failsaf
 <li class="blockList">
 <h4>of</h4>
 <pre>static&nbsp;&lt;R&gt;&nbsp;<a href="../../dev/failsafe/Timeout.html" title="interface in dev.failsafe">Timeout</a>&lt;R&gt;&nbsp;of(<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;timeout)</pre>
-<div class="block">Alias for:
- <pre>
-   Timeout.builder(timeout).build();
- </pre>
- Returns a <a href="../../dev/failsafe/Timeout.html" title="interface in dev.failsafe"><code>Timeout</code></a> that fails an execution with <a href="../../dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if it exceeds the <code>timeout</code>. To configure other options on a Timeout, use <a href="../../dev/failsafe/Timeout.html#builder-java.time.Duration-"><code>builder(Duration)</code></a> instead.</div>
+<div class="block">Returns a <a href="../../dev/failsafe/Timeout.html" title="interface in dev.failsafe"><code>Timeout</code></a> that fails an execution with <a href="../../dev/failsafe/TimeoutExceededException.html" title="class in dev.failsafe"><code>TimeoutExceededException</code></a> if
+ it exceeds the <code>timeout</code>. Alias for <code>Timeout.builder(timeout).build()</code>. To configure other options on a
+ Timeout, use <a href="../../dev/failsafe/Timeout.html#builder-java.time.Duration-"><code>builder(Duration)</code></a> instead.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>R</code> - result type</dd>
