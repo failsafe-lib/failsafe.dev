@@ -28,57 +28,57 @@
 [standalone-execution]: {{ "/standalone-execution" | relative_url }}
 [strong-typing]: {{ "/strong-typing" | relative_url }}
 [extending]: {{ "/extending" | relative_url }}
-[policy-executor-impl]: {{ site.github-url }}/tree/master/src/main/java/net/jodah/failsafe/PolicyExecutor.java
-[policy-executor-impls]: {{ site.github-url }}/tree/master/src/main/java/net/jodah/failsafe
+[policy-executor-impl]: {{ site.github-url }}/tree/master/src/main/java/dev/failsafe/spi/PolicyExecutor.java
+[policy-executor-impls]: {{ site.github-url }}/tree/master/src/main/java/dev/failsafe
 
 [javadoc]: {{ "/javadoc" | relative_url }}
 [gitter]: https://gitter.im/jhalterman/failsafe
-[examples]: {{ site.github-url }}/blob/master/src/test/java/net/jodah/failsafe/examples
-[RxJava]: {{ site.github-url }}/blob/master/src/test/java/net/jodah/failsafe/examples/RxJavaExample.java
-[Vert.x]: {{ site.github-url }}/blob/master/src/test/java/net/jodah/failsafe/examples/VertxExample.java
+[examples]: {{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples
+[RxJava]: {{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/RxJavaExample.java
+[Vert.x]: {{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/VertxExample.java
 [whos-using]: {{ site.github-url }}/wiki/Who's-Using-Failsafe
 
 <!-- Failsafe Javadocs - Classes -->
 
-[Failsafe]: {{ site.url }}/javadoc/net/jodah/failsafe/Failsafe.html
-[FailsafeExecutor]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html
-[Policy]: {{ site.url }}/javadoc/net/jodah/failsafe/Policy.html
-[PolicyListeners]: {{ site.url }}/javadoc/net/jodah/failsafe/PolicyListeners.html
-[FailurePolicy]: {{ site.url }}/javadoc/net/jodah/failsafe/FailurePolicy.html
-[RetryPolicy]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html
-[Timeout]: {{ site.url }}/javadoc/net/jodah/failsafe/Timeout.html
-[Fallback]: {{ site.url }}/javadoc/net/jodah/failsafe/Fallback.html
-[CircuitBreaker]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html
-[PolicyExecutor]: {{ site.url }}/javadoc/net/jodah/failsafe/PolicyExecutor.html
-[ExecutionContext]: {{ site.url }}/javadoc/net/jodah/failsafe/ExecutionContext.html
-[Execution]: {{ site.url }}/javadoc/net/jodah/failsafe/Execution
-[AsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/AsyncExecution
-[Scheduler]: {{ site.url }}/javadoc/net/jodah/failsafe/util/concurrent/Scheduler.html
-[CircuitBreakerOpenException]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreakerOpenException.html
-[TimeoutExceededException]: {{ site.url }}/javadoc/net/jodah/failsafe/TimeoutExceededException.html
+[Failsafe]: {{ site.url }}/javadoc/dev/failsafe/Failsafe.html
+[FailsafeExecutor]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html
+[Policy]: {{ site.url }}/javadoc/dev/failsafe/Policy.html
+[PolicyListeners]: {{ site.url }}/javadoc/dev/failsafe/PolicyListeners.html
+[FailurePolicyBuilder]: {{ site.url }}/javadoc/dev/failsafe/FailurePolicyBuilder.html
+[RetryPolicy]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicy.html
+[Timeout]: {{ site.url }}/javadoc/dev/failsafe/Timeout.html
+[Fallback]: {{ site.url }}/javadoc/dev/failsafe/Fallback.html
+[CircuitBreaker]: {{ site.url }}/javadoc/dev/failsafe/CircuitBreaker.html
+[PolicyExecutor]: {{ site.url }}/javadoc/dev/failsafe/spi/PolicyExecutor.html
+[ExecutionContext]: {{ site.url }}/javadoc/dev/failsafe/ExecutionContext.html
+[Execution]: {{ site.url }}/javadoc/dev/failsafe/Execution.html
+[AsyncExecution]: {{ site.url }}/javadoc/dev/failsafe/AsyncExecution.html
+[Scheduler]: {{ site.url }}/javadoc/dev/failsafe/spi/Scheduler.html
+[CircuitBreakerOpenException]: {{ site.url }}/javadoc/dev/failsafe/CircuitBreakerOpenException.html
+[TimeoutExceededException]: {{ site.url }}/javadoc/dev/failsafe/TimeoutExceededException.html
 
 <!-- Failsafe Javadocs - Methods -->
 
-[withExecutor]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#with-java.util.concurrent.Executor-
-[runAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#runAsync-net.jodah.failsafe.function.CheckedRunnable-
-[getAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getAsync-net.jodah.failsafe.function.CheckedSupplier-
-[getStageAsync]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getStageAsync-net.jodah.failsafe.function.CheckedSupplier-
-[runAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#runAsyncExecution-net.jodah.failsafe.function.AsyncRunnable-
-[getAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
-[getStageAsyncExecution]: {{ site.url }}/javadoc/net/jodah/failsafe/FailsafeExecutor.html#getStageAsyncExecution-net.jodah.failsafe.function.AsyncSupplier-
+[withExecutor]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#with-java.util.concurrent.Executor-
+[withExecutorService]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#with-java.util.concurrent.ExecutorService-
+[runAsync]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#runAsync-dev.failsafe.function.CheckedRunnable-
+[getAsync]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#getAsync-dev.failsafe.function.CheckedSupplier-
+[getStageAsync]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#getStageAsync-dev.failsafe.function.CheckedSupplier-
+[runAsyncExecution]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#runAsyncExecution-dev.failsafe.function.AsyncRunnable-
+[getAsyncExecution]: {{ site.url }}/javadoc/dev/failsafe/FailsafeExecutor.html#getAsyncExecution-dev.failsafe.function.AsyncRunnable-
 
-[backoff]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withBackoff-long-long-java.time.temporal.ChronoUnit-
-[computed-delay]: {{ site.url }}/javadoc/net/jodah/failsafe/DelayablePolicy.html#withDelay-net.jodah.failsafe.function.DelayFunction-
-[random-delay]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withDelay-long-long-java.time.temporal.ChronoUnit-
-[abort-retries]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#abortOn-java.lang.Class...-
-[max-retries]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withMaxRetries-int-
-[max-attempts]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withMaxAttempts-int-
-[max-duration]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withMaxDuration-java.time.Duration-
-[jitter-duration]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withJitter-java.time.Duration-
-[jitter-factor]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#withJitter-double-
-[retries-exceeded]: {{ site.url }}/javadoc/net/jodah/failsafe/RetryPolicy.html#onRetriesExceeded-net.jodah.failsafe.function.CheckedConsumer-
+[backoff]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withBackoff-long-long-java.time.temporal.ChronoUnit-
+[computed-delay]: {{ site.url }}/javadoc/dev/failsafe/DelayablePolicyBuilder.html#withDelayFn-dev.failsafe.function.ContextualSupplier-
+[random-delay]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withDelay-long-long-java.time.temporal.ChronoUnit-
+[abort-retries]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#abortOn-java.lang.Class...-
+[max-retries]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withMaxRetries-int-
+[max-attempts]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withMaxAttempts-int-
+[max-duration]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withMaxDuration-java.time.Duration-
+[jitter-duration]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withJitter-java.time.Duration-
+[jitter-factor]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withJitter-double-
+[retries-exceeded]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#onRetriesExceeded-dev.failsafe.event.EventListener-
 
-[breaker-timeout]: {{ site.url }}/javadoc/net/jodah/failsafe/CircuitBreaker.html#withTimeout-java.time.Duration-
+[interrupt]: {{ site.url }}/javadoc/dev/failsafe/TimeoutBuilder.html#withInterrupt--
 
 <!-- JDK Javadocs -->
 
@@ -93,7 +93,8 @@
 [Executor]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html
 [ExecutorService]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html
 [InterruptedException]: https://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html
-[interrupt]: {{ site.url }}/javadoc/net/jodah/failsafe/Timeout.html#withInterrupt-boolean-
+[is-interrupted]: https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html#isInterrupted--
+[interrupts]: https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html
 
 <!-- Misc links -->
 

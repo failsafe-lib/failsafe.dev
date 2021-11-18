@@ -31,7 +31,7 @@ Failsafe.with(retryPolicy)
 
 ## Async Integration
 
-Failsafe can also integrate with threads that are outside of its control. The [runAsyncExecution], [getAsyncExecution] and [getStageAsyncExecution] methods provide an [AsyncExecution] object that can be used to record execution results from another thread:
+Failsafe can also integrate with threads that are outside of its control. The [runAsyncExecution] and [getAsyncExecution] methods provide an [AsyncExecution] object that can be used to record execution results from another thread:
 
 ```java
 Failsafe.with(retryPolicy).getAsyncExecution(execution -> {

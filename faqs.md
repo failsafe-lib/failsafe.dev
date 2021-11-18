@@ -35,7 +35,7 @@ Failsafe.with(fallback, retryPolicy, timeout).get(this::connect);
 
 When you do, you may want to make sure that the `RetryPolicy` or `Fallback` are configured to handle `TimeoutExceededException`.
 
-By default, a policy will handle all `Exception` types. But if you configure specific [result or failure handlers][FailurePolicy], then it may not recognize a `TimeoutExceededException` as a failure and may not handle it. Ex:
+By default, a policy will handle all `Exception` types. But if you configure specific [result or failure handlers][FailurePolicyBuilder], then it may not recognize a `TimeoutExceededException` as a failure and may not handle it. Ex:
 
 ```java
 // Only handles ConnectException, not TimeoutExceededException
@@ -46,8 +46,6 @@ If you have specific failure handling configuration and also want to handle `Tim
 
 ## Why is CircuitBreakerOpenException not being handled?
 
-As with `TimeoutExceededException` described above, if you configure specific [result or failure handlers][FailurePolicy] you may need to ensure that `CircuitBreakerOpenException` is configured to be handled.
-
-[FailurePolicy]: {{ site.url }}/javadoc/net/jodah/failsafe/FailurePolicy.html
+As with `TimeoutExceededException` described above, if you configure specific [result or failure handlers][FailurePolicyBuilder] you may need to ensure that `CircuitBreakerOpenException` is configured to be handled.
 
 {% include common-links.html %}

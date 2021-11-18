@@ -4,7 +4,7 @@ title: Fault tolerance and resilience patterns for the JVM
 ---
 
 {: .callout }
-Failsafe 3.0 has been released! See the [changelog](https://github.com/failsafe-lib/failsafe/blob/master/CHANGELOG.md#30) for info on upgrading from 2.x.
+Failsafe 3.0 has been released! See the [changelog]({{ site.github-url }}/blob/master/CHANGELOG.md#30) for info on upgrading from 2.x.
 
 # Overview
 

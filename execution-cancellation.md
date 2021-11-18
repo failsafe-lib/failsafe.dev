@@ -16,7 +16,7 @@ Future<Connection> future = Failsafe.with(retryPolicy).getAsync(this::connect);
 future.cancel(shouldInterrupt);
 ```
 
-Cancellation will cause any async execution retries and timeout attempts to stop. Interruption will cause the execution thread's [interrupt] flag to be set.
+Cancellation will cause any async execution retries and timeout attempts to stop. Interruption will cause the execution thread's [interrupt][interrupts] flag to be set.
 
 ## Cooperative Cancellation
 
@@ -48,6 +48,6 @@ Since the [async integration][async-integration] methods involve external thread
 
 ## Interruption Support
 
-Failsafe adds interruption support for any [ForkJoinPool][] that is configured as an [executor][executor-configuration], including the [common ForkJoinPool][common-pool] which is used by default. This means asynchronous tasks which are not normally interruptable outside of Failsafe can become interruptable when using Failsafe.
+Failsafe adds interruption support for any [ForkJoinPool][] that is configured as an [executor][withExecutorService], including the [common ForkJoinPool][common-pool] which is used by default. This means asynchronous tasks which are not normally interruptable outside of Failsafe can become interruptable when using Failsafe.
 
 {% include common-links.html %}

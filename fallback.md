@@ -41,7 +41,7 @@ Fallback<Object> fallback = Fallback.builder(this::blockingCall).withAsync().bui
 
 ## Failure Handling
 
-Like any [FailurePolicy], [Fallbacks] can be configured to handle only [certain results or failures][failure-handling]:
+[Fallbacks][Fallback] can be configured to handle only [certain results or failures][failure-handling]:
 
 ```java
 builder
@@ -53,7 +53,7 @@ When using a Fallback in combination with another policy, it's common to configu
 
 ## Event Listeners
 
-[Fallbacks] support event listeners that can tell you when the last execution attempt failed:
+[Fallbacks][Fallback] support event listeners that can tell you when the last execution attempt failed:
 
 ```java
 builder.onFailedAttempt(e -> log.error("Connection failed", e.getLastFailure()))

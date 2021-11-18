@@ -29,7 +29,7 @@ Failsafe and Resilience4j are similar libraries in what they aim to offer users.
 
 ### Policies
 
-- Failsafe provides a uniform interface for [failure handling][FailurePolicy] and [event handling][PolicyListeners] configuration. Resilience4j provides distinct configurations for each policy.
+- Failsafe provides a uniform interface for [failure handling][FailurePolicyBuilder] and [event handling][PolicyListeners] configuration. Resilience4j provides distinct configurations for each policy.
 - Resilience4j offers Bulkhead, RateLimiter, and Cache policies, which Failsafe currently does not offer.
 - Failsafe circuit breakers can be used and operated as [standalone][circuit-breaker-standalone] constructs.
 
@@ -58,7 +58,7 @@ Failsafe is intended to be a lightweight, general purpose library for handling a
 
 ### Async Support
 
-- Failsafe supports [configurable thread pools][executor-configuration] in addition to the [common pool][common-pool]. In Hystrix, asynchronous commands are executed on internally managed thread pools for particular dependencies.
+- Failsafe supports [configurable thread pools][withExecutorService] in addition to the [common pool][common-pool]. In Hystrix, asynchronous commands are executed on internally managed thread pools for particular dependencies.
 - In Failsafe, asynchronous executions can be observed via [event listeners][event-listeners] and the resulting [CompletableFuture]. In Hystrix, asynchronous executions can be [observed](http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/HystrixCommand.html#observe--) using RxJava [Observables](http://reactivex.io/RxJava/javadoc/rx/Observable.html).
 
 ### Policies

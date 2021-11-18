@@ -84,7 +84,7 @@ builder
 
 ## Failure Handling
 
-Like any [FailurePolicy], a [RetryPolicy] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
+A [RetryPolicy] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
 
 ```java
 builder
