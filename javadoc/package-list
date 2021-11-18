@@ -1,4 +1,4 @@
-net.jodah.failsafe
-net.jodah.failsafe.event
-net.jodah.failsafe.function
-net.jodah.failsafe.util.concurrent
+dev.failsafe
+dev.failsafe.event
+dev.failsafe.function
+dev.failsafe.spi
