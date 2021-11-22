@@ -42,12 +42,12 @@ Failsafe.with(timeout).getAsync(()-> {
 });
 ```
 
-## Limitations
-
-Since the [async integration][async-integration] methods involve external threads, which Failsafe has no knowledge of, these executions cannot be directly cancelled or interrupted by Failsafe. These executions can still [cooperate with cancellation][cooperative-cancellation] as described above, though they cannot cooperate with interruption.
-
 ## Interruption Support
 
 Failsafe adds interruption support for any [ForkJoinPool][] that is configured as an [executor][withExecutorService], including the [common ForkJoinPool][common-pool] which is used by default. This means asynchronous tasks which are not normally interruptable outside of Failsafe can become interruptable when using Failsafe.
+
+## Limitations
+
+Since the [async integration][async-integration] methods involve external threads, which Failsafe has no knowledge of, these executions cannot be directly cancelled or interrupted by Failsafe. These executions can still [cooperate with cancellation][cooperative-cancellation] as described above, though they cannot cooperate with interruption.
 
 {% include common-links.html %}
