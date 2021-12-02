@@ -24,7 +24,7 @@ CircuitBreaker<Object> breaker = CircuitBreaker.builder()
 
 ## How it Works
 
-When the number of recent execution failures exceed a configured threshold, the breaker is *opened* and further execution requests fail with `CircuitBreakerOpenException`. After a delay, the breaker is *half-opened* and trial executions are allowed which determine whether the breaker should be *closed* or *opened* again. If the trial executions meet a success threshold, the breaker is *closed* again and executions will proceed as normal, otherwise it's re-*opened*.
+When the number of recent execution failures exceed a configured threshold, the breaker is *opened* and further executions will fail with `CircuitBreakerOpenException`. After a delay, the breaker is *half-opened* and trial executions are allowed which determine whether the breaker should be *closed* or *opened* again. If the trial executions meet a success threshold, the breaker is *closed* again and executions will proceed as normal, otherwise it's re-*opened*.
 
 ## Configuration
 
@@ -32,7 +32,7 @@ When the number of recent execution failures exceed a configured threshold, the 
 
 ### Opening
 
-A *count based* circuit breaker can be configured to *open* when a successive number of executions have failed:
+A circuit breaker is *count based* by default and will *open* after a single failure occurs. You can instead configure a circuit breaker to *open* when a successive number of executions have failed:
 
 ```java
 builder.withFailureThreshold(5);
@@ -142,7 +142,7 @@ if (breaker.tryAcquirePermit()) {
 
 ## Performance
 
-Failsafe's internal [CircuitBreaker] implementation is space and time efficient, utilizing a single circular data structure to record execution results. Recording an execution and evaluating a threshold is an _O(1)_ operation, regardless of the thresholding capacity.
+Failsafe's internal [CircuitBreaker] implementation is space and time efficient, utilizing a single circular data structure to record execution results. Recording an execution and evaluating a threshold has an _O(1)_ time complexity, regardless of the thresholding capacity.
 
 [remaining-delay]: {{ site.url }}/javadoc/dev/failsafe/CircuitBreaker.html#getRemainingDelay--
 [breaker-execution-count]: {{ site.url }}/javadoc/dev/failsafe/CircuitBreaker.html#getExecutionCount--

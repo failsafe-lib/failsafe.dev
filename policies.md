@@ -77,7 +77,7 @@ Consider the following policy composition execution:
 
 ### Composition Recommendations
 
-A typical policy composition might place a `Fallback` as the outer-most policy, followed by a `RetryPolicy`, `CircuitBreaker`, and a `Timeout` as the inner-most policy:
+A typical policy composition might place a `Fallback` as the outer-most policy, followed by a `RetryPolicy`, a `CircuitBreaker` or `RateLimiter`, and a `Timeout` as the inner-most policy:
 
 ```java
 Failsafe.with(fallback, retryPolicy, circuitBreaker, timeout)
@@ -91,6 +91,7 @@ Read about the built-in policies that Failsafe supports:
 
 - [Retry][retry]
 - [Circuit Breaker][circuit-breakers]
+- [Rate Limiter][rate-limiters]
 - [Timeout][timeouts]
 - [Fallback][fallbacks]
 

@@ -30,8 +30,8 @@ Failsafe and Resilience4j are similar libraries in what they aim to offer users.
 ### Policies
 
 - Failsafe provides a uniform interface for [failure handling][FailurePolicyBuilder] and [event handling][PolicyListeners] configuration. Resilience4j provides distinct configurations for each policy.
-- Resilience4j offers Bulkhead, RateLimiter, and Cache policies, which Failsafe currently does not offer.
-- Failsafe circuit breakers can be used and operated as [standalone][circuit-breaker-standalone] constructs.
+- Resilience4j offers Bulkhead and Cache policies, which Failsafe currently does not offer.
+- Failsafe circuit breakers and rate limiters can be used as standalone constructs.
 
 ### Other Features
 

@@ -5,6 +5,7 @@
   - [Policies Overview][policies]
   - [Retry][retry]
   - [Circuit Breaker][circuit-breakers]
+  - [Rate Limiter][rate-limiters]
   - [Timeout][timeouts]
   - [Fallback][fallbacks]
 
