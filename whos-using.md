@@ -63,6 +63,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [CloudWise](http://www.cloudwise.com)
 * [Connexta](https://connexta.com/)
 * [ConsenSys](http://www.consensys.net)
+* [Coupang](https://rocketyourcareer.usa.coupang.com/)
 * [CQSE](https://www.cqse.eu/)
 * [CryptoRefills](http://www.cryptorefills.com)
 * [Didi Chuxing](http://www.xiaojukeji.com/)
