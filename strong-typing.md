@@ -28,4 +28,11 @@ HttpResponse response = Failsafe.with(retryPolicy)
   .get(this::sendHttpRequest);
 ```
 
+It also ensures that when multiple policies are composed, they all share the same result type:
+
+```java
+CircuitBreaker<HttpResponse> circuitBreaker = CircuitBreaker.ofDefaults();
+Failsafe.with(retryPolicy, circuitBreaker).get(this::connect);
+```
+
 {% include common-links.html %}
