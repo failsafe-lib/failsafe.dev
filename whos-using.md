@@ -79,7 +79,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [GRyCAP](http://www.grycap.upv.es)
 * [HPE](https://www.hpe.com)
 * [HubSpot](http://product.hubspot.com/)
-* [Hyperchain](hyperchain.cn)
+* [Hyperchain](https://www.hyperchain.cn/)
 * [IBM](https://www.ibm.com/)
 * [Intuit](https://www.intuit.com/)
 * [LeanCloud](https://leancloud.cn)
