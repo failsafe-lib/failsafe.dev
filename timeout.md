@@ -15,7 +15,7 @@ title: Timeout
 Timeout<Object> timeout = Timeout.of(Duration.ofSeconds(10));
 ```
 
-You can create a Timeout that [imterrupts][interrupt] execution if it times out:
+You can create a Timeout that [withInterrupt][interrupt] execution if it times out:
 
 ```java
 Timeout<Object> timeout = Timeout.builder(Duration.ofSeconds(10)).withInterrupt().build();
