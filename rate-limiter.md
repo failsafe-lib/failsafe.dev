@@ -13,7 +13,7 @@ title: Rate Limiter
 
 ## How It Works
 
-When the number of executions through the rate limiter exceeds the configured max per time period, further executions will either fail with `RateLimitExceededException` or will block and wait until permitted.
+When the number of executions through the rate limiter exceeds the configured max per time period, further executions will either fail with `RateLimitExceededException` or will wait until permitted.
 
 ## Smooth Rate Limiter
 
@@ -46,30 +46,14 @@ Executions are permitted with no delay up to the given `maxExecutions` for the c
 
 ## Waiting
 
-By default, when a [RateLimiter] is exceeded, further executions will immediately fail with `RateLimitExceededException`. A rate limiter can also be configured to block and wait for execution permission if it can be achieved within a max wait time:
+By default, when a [RateLimiter] is exceeded, further executions will immediately fail with `RateLimitExceededException`. A rate limiter can also be configured to wait for execution permission if it can be achieved within a max wait time:
 
 ```java
 // Wait up to 1 second for execution permission
 builder.withMaxWaitTime(Duration.ofSeconds(1));
 ```
 
-Actual wait times for a rate limiter can vary depending on busy the rate limiter is. Wait times will grow if more executions are consistently attempted than the rate limiter permits. Since execution threads block while waiting for a rate limiter, a `maxWaitTime` should be reasonable enough to avoid blocking too many threads.
-
-## Rate Limiters with Retries
-
-As an alternative to configuring a `maxWaitTime`, which may block an execution while waiting for permission, you can also wrap a [RateLimiter] with a [RetryPolicy] and perform an async execution:
-
-```java
-RateLimiter<Object> limiter = RateLimiter.smoothBuilder(Duration.ofMillis(10)).build();
-RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
-  .handle(RateLimitExceededException.class)
-  .withDelay(Duration.ofSeconds(1))
-  .build();
-  
-Failsafe.with(retryPolicy, limiter).runAsync(this::sendMessage);
-```
-
-If the execution attempt exceeds the rate limit, it will be retried asynchronously without blocking a thread while waiting. This approach does require that a rate limiter permit is free at the time of the execution though, since it does not wait for permission.
+Actual wait times for a rate limiter can vary depending on busy the rate limiter is. Wait times will grow if more executions are consistently attempted than the rate limiter permits. Since synchronous executions will block while waiting on a rate limiter, a `maxWaitTime` should be chosen carefully to avoid blocking too many threads. Async executions will not block while waiting on a rate limiter.
 
 ## Event Listeners
 

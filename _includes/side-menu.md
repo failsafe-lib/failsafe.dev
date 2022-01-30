@@ -7,6 +7,7 @@
   - [Circuit Breaker][circuit-breakers]
   - [Rate Limiter][rate-limiters]
   - [Timeout][timeouts]
+  - [Bulkhead][bulkheads]
   - [Fallback][fallbacks]
 
 - Features

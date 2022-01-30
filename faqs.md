@@ -16,8 +16,9 @@ Failsafe requires the use of separate threads for a few different situations:
 - Async executions and retries
 - Async `Fallback` calls
 - `Timeout` checks
+- Async `RateLimiter` and `Bulkhead` permit waiting
 
-For async executions, async retries, and async fallbacks, you can supply your own `ScheduledExecutorService`, `Executor`, or `Scheduler` via `FailsafeExecutor.with()` which Failsafe will use. If no executor is configured, Failsafe will use the `ForkJoinPool.commonPool` for these purposes. 
+For async executions, retries, fallbacks, and rate limiter or bulkhead waiting, you can supply your own `ScheduledExecutorService`, `ExecutorService`, or `Scheduler` via `FailsafeExecutor.with()` which Failsafe will use. If none of these is configured, Failsafe will use the `ForkJoinPool.commonPool` for async scheduling. 
 
 `Timeout` checks are always performed using the `ForkJoinPool.commonPool` so that they are not blocked if the configured executor or Scheduler are fully utilized.
 
@@ -39,7 +40,7 @@ By default, a policy will handle all `Exception` types. But if you configure spe
 
 ```java
 // Only handles ConnectException, not TimeoutExceededException
-retryPolicy.handle(ConnectException.class);
+retryPolicyBuilder.handle(ConnectException.class);
 ```
 
 If you have specific failure handling configuration and also want to handle `TimeoutExceededException`, be sure to configure it.
