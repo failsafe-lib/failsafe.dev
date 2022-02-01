@@ -25,14 +25,16 @@ Failsafe and Resilience4j are similar libraries in what they aim to offer users.
 - Failsafe offers [async integration][async-integration] support.
 - Failsafe offers [configurable executors][executorservice-configuration] and [custom schedulers][custom-schedulers].
 - Failsafe offers [cancellation and interruption][execution-cancellation] support for all sync and async executions. Resilience4j supports cancellation via decorated CompletionStages.
-- Failsafe provides [interruption support][interruption-support] for executions that run in a [ForkJoinPool] such as CompletableFutures. Resilience4j decorated CompletionStages cannot be interrupted.
+- Failsafe extends [interruption support][interruption-support] to executions that run in a [ForkJoinPool] such as CompletableFutures. Resilience4j decorated CompletionStages cannot be interrupted.
 - Failsafe's RateLimiter and Bulkhead can [wait asynchronously][async-execution] for a permit. Resilience4j's RateLimiter and Bulkhead block while waiting.
 
 ### Policies
 
-- Failsafe provides a uniform interface for [failure handling][FailurePolicyBuilder] and [event handling][PolicyListeners] configuration. Resilience4j provides distinct configurations for each policy.
+- Failsafe provides a uniform interface for [failure handling][FailurePolicyBuilder] and [event handling][PolicyListeners] configuration. Resilience4j configuration for these varies across policies.
+- Failsafe's Timeout policy supports interrupts.
+- Failsafe's RateLimiter supports smooth and bursty rate limiting.
+- Failsafe CircuitBreaker, RateLimiter, and Bulkhead can be used as standalone constructs.
 - Resilience4j offers a Cache policy, which Failsafe doesn't.
-- Failsafe circuit breaker, rate limiters, and bulkheads can be used as standalone constructs.
 
 ### Other Features
 
