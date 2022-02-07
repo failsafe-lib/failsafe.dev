@@ -7,10 +7,11 @@ title: Example Integrations
 
 Failsafe was designed to integrate nicely with other libraries and APIs. Here are some example integrations:
 
-* [Java 8]({{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/Java8Example.java)
-* [Netty]({{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/NettyExample.java)
-* [RxJava]({{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/RxJavaExample.java)
-* [Vert.x]({{ site.github-url }}/blob/master/src/test/java/dev/failsafe/examples/VertxExample.java)
+* [Java 8][java8-example]
+* [Async][async-example]
+* [Netty][netty-example]
+* [RxJava][rxjava-example]
+* [Vert.x][vertx-example]
 * [Circuit Breaker Operator based on RxJava2](https://github.com/venth/failsafe-rxjava2)
 * [Circuit Breaker Operator based on Spring Reactor](https://github.com/venth/failsafe-reactor)
 

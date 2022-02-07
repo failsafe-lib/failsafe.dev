@@ -63,6 +63,6 @@ Failsafe can integrate with libraries that use their own schedulers for async ex
 Failsafe.with(policy).with(akkaScheduler).getAsync(this::connect);
 ```
 
-See the [Vert.x example][Vert.x] of a custom scheduler implementation.
+See the [Vert.x example][vertx-example] of a custom scheduler implementation.
 
 {% include common-links.html %}
