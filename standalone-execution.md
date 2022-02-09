@@ -31,6 +31,6 @@ if (!execution.isComplete())
   service.scheduleRetry(execution.getDelay());
 ```
 
-See the [RxJava example][RxJava] for a more detailed implementation.
+See the [RxJava example][rxjava-example] for a more detailed implementation.
 
 {% include common-links.html %}
