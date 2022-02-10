@@ -73,6 +73,13 @@ if (rateLimiter.tryAcquirePermit()) {
 }
 ```
 
+You can also integrate a rate limiter with an external scheduler to wait for a permit externally:
+
+```java
+Duration permitWaitTime = rateLimiter.reservePermit();
+executor.schedule(this::sendRequest, permitWaitTime);
+```
+
 ## Performance
 
 Failsafe's internal [RateLimiter] implementation is efficient, with _O(1)_ time and space complexity.
