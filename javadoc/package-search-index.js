@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dev.failsafe"},{"l":"dev.failsafe.event"},{"l":"dev.failsafe.function"},{"l":"dev.failsafe.spi"}]
