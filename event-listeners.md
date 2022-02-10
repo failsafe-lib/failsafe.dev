@@ -20,8 +20,8 @@ Failsafe.with(retryPolicy, circuitBreaker)
   .onComplete(e -> {
     if (e.getResult() != null)
       log.info("Connected to {}", e.getResult());
-    else if (e.getFailure() != null)
-      log.error("Failed to create connection", e.getFailure());
+    else if (e.getException() != null)
+      log.error("Failed to create connection", e.getException());
   })
   .get(this::connect);
 ```
@@ -38,7 +38,7 @@ Or when an execution fails for *any* policy:
 
 ```java
 Failsafe.with(retryPolicy, circuitBreaker)
-  .onFailure(e -> log.error("Failed to create connection", e.getFailure()))
+  .onFailure(e -> log.error("Failed to create connection", e.getException()))
   .get(this::connect);
 ```
 
@@ -49,7 +49,7 @@ At the policy level, Failsafe can notify you when an execution succeeds or fails
 ```java
 policyBuilder
   .onSuccess(e -> log.info("Connected to {}", e.getResult()))
-  .onFailure(e -> log.error("Failed to create connection", e.getFailure()));
+  .onFailure(e -> log.error("Failed to create connection", e.getException()));
 ```
 
 Additional listeners are available for [retry policies][retry-listeners], [fallbacks][fallback-listeners] and [circuit breakers][circuit-breaker-listeners].

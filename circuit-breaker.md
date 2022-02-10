@@ -131,7 +131,7 @@ if (breaker.tryAcquirePermit()) {
     doSomething();
     breaker.recordSuccess();
   } catch (Exception e) {
-    breaker.recordFailure(e);
+    breaker.recordException(e);
   }
 }
 ```

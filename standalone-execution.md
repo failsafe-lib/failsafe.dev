@@ -15,7 +15,7 @@ while (!execution.isComplete()) {
   try {
     execution.recordResult(connect());
   } catch (ConnectException e) {
-    execution.recordFailure(e);
+    execution.recordException(e);
   }
 }
 ```
@@ -25,8 +25,8 @@ An [Execution] is also useful for integrating with APIs that have their own retr
 ```java
 Execution<Connection> execution = Execution.of(retryPolicy);
 
-// On failure
-execution.recordFailure(connectException);
+// On exception
+execution.recordException(connectException);
 if (!execution.isComplete())
   service.scheduleRetry(execution.getDelay());
 ```

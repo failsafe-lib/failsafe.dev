@@ -46,7 +46,7 @@ When an async executions times out, Failsafe still waits until the execution com
 [Timeouts][Timeout] support the standard [policy listeners][PolicyListeners] which can notify you when a timeout is exceeded:
 
 ```java
-builder.onFailure(e -> log.error("Connection attempt timed out", e.getFailure()));
+builder.onFailure(e -> log.error("Connection attempt timed out", e.getException()));
 ```
 
 Or when an execution completes and the timeout is not exceeded:

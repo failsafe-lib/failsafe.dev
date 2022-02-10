@@ -45,7 +45,7 @@ A [random delay][random-delay] for some range:
 builder.withDelay(1, 10, ChronoUnit.SECONDS);
 ```
 
-Or a [computed delay][computed-delay] based on an execution result or failure.
+Or a [computed delay][computed-delay] based on an execution result or exception.
 
 ### Jitter
 
@@ -73,7 +73,7 @@ To [cancel or interrupt][execution-cancellation] running executions, see the [Ti
 
 ## Aborts
 
-You can also specify which results, failures or conditions to [abort retries][abort-retries] on:
+You can also specify which results, exceptions, or conditions to [abort retries][abort-retries] on:
 
 ```java
 builder
@@ -84,7 +84,7 @@ builder
 
 ## Failure Handling
 
-A [RetryPolicy] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
+A [RetryPolicy] can be configured to handle only [certain results or exceptions][failure-handling], in combination with any of the configuration described above:
 
 ```java
 builder
@@ -98,7 +98,7 @@ In addition to the standard [policy listeners][policy-listeners], a [RetryPolicy
 
 ```java
 builder
-  .onFailedAttempt(e -> log.error("Connection attempt failed", e.getLastFailure()))
+  .onFailedAttempt(e -> log.error("Connection attempt failed", e.getLastException()))
   .onRetry(e -> log.warn("Failure #{}. Retrying.", e.getAttemptCount()));
 ```
 
@@ -111,13 +111,13 @@ builder.onRetriesExceeded(e -> log.warn("Failed to connect. Max retries exceeded
 When an async retry is scheduled to be attempted after the configured delay:
 
 ```java
-builder.onRetryScheduled(e -> log.info("Connection retry scheduled {}.", e.getFailure()));
+builder.onRetryScheduled(e -> log.info("Connection retry scheduled {}.", e.getException()));
 ```
 
 Or when retries have been aborted:
 
 ```java
-builder.onAbort(e -> log.warn("Connection aborted due to {}.", e.getFailure()));
+builder.onAbort(e -> log.warn("Connection aborted due to {}.", e.getException()));
 ```
 
 

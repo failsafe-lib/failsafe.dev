@@ -5,7 +5,7 @@ title: Execution Context
 
 # Execution Context
 
-Failsafe can provide an [ExecutionContext] containing execution related information such as the number of execution attempts, start and elapsed times, and the last result or failure:
+Failsafe can provide an [ExecutionContext] containing execution related information such as the number of execution attempts, start and elapsed times, and the last result or exception:
 
 ```java
 Failsafe.with(retryPolicy).run(ctx -> {

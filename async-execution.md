@@ -36,16 +36,13 @@ Failsafe can also integrate with threads that are outside of its control. The [r
 ```java
 Failsafe.with(retryPolicy).getAsyncExecution(execution -> {
   // A method that runs in a different thread
-  service.connectAsync().whenComplete((connection, failure) -> {
-    if (failure != null)
-      execution.recordFailure(failure);
-    else
-      execution.recordResult(connection);
+  service.connectAsync().whenComplete((connection, exception) -> {
+    execution.record(connection, exception);
   });
 });
 ```
 
-The execution will be retried, if needed, when a result or failure is recorded.
+The execution will be retried, if needed, when a result or exception is recorded.
 
 ## ExecutorService Configuration
 

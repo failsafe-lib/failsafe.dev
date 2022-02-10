@@ -11,7 +11,7 @@ title: Policies
 
 ## Failure Handling
 
-Failsafe policies determine which execution [results or failures][FailurePolicyBuilder] to handle and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific failures or conditions:
+Failsafe policies determine which execution [results or exceptions][FailurePolicyBuilder] to handle as failures and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific failures or conditions:
 
 ```java
 policyBuilder
@@ -55,9 +55,9 @@ Fallback(RetryPolicy(CircuitBreaker(Timeout(Supplier))))
 
 ### Executing a Policy Composition
 
-The process for executing a policy composition begins with Failsafe calling the outer-most policy. That policy in turn calls the next inner policy, and so on, until the user-provided `Runnable` or `Supplier` is reached. A result or failure is returned back through the policy layers, and handled if needed by any policy along the way.
+The process for executing a policy composition begins with Failsafe calling the outer-most policy. That policy in turn calls the next inner policy, and so on, until the user-provided `Runnable` or `Supplier` is reached. A result or exception is returned back through the policy layers, and handled if needed by any policy along the way.
 
-Each policy makes its own decision to allow an execution attempt to proceed and how to handle an execution result or failure. For example, a `RetryPolicy` may retry an execution, which calls the next inner policy again, or it may return the result or failure. A `CircuitBreaker` may throw an exception before an execution attempt even makes it to the `Supplier`.
+Each policy makes its own decision to allow an execution attempt to proceed and how to handle an execution result or exception. For example, a `RetryPolicy` may retry an execution, which calls the next inner policy again, or it may return the result or exception. A `CircuitBreaker` may throw an exception before an execution attempt even makes it to the `Supplier`.
 
 ### Example Execution
 
@@ -69,11 +69,11 @@ Consider the following policy composition execution:
 - `Fallback` calls the `RetryPolicy`
 - `RetryPolicy` calls the `CircuitBreaker`
 - `CircuitBreaker` rejects the execution if the breaker is open, else calls the `Supplier`
-- `Supplier` executes and returns a result or throws a failure
-- `CircuitBreaker` records the result as either a success or failure, based on its configuration, possibly changing the state of the breaker, then returns the result or failure
-- `RetryPolicy` records the result as either a success or failure, based on its configuration, and either retries or returns the result or failure
-- `Fallback` handles the result or failure according to its configuration and returns a fallback result if needed
-- Failsafe returns the final result or failure to the caller
+- `Supplier` executes and returns a result or throws an exception
+- `CircuitBreaker` records the result as either a success or failure, based on its configuration, possibly changing the state of the breaker, then returns or throws
+- `RetryPolicy` records the result as either a success or failure, based on its configuration, and either retries or returns the result or exception
+- `Fallback` handles the result or failure according to its configuration and returns a fallback result or exception if needed
+- Failsafe returns the final result or exception to the caller
 
 ### Composition Recommendations
 

@@ -18,7 +18,7 @@ Fallback<Object> fallback = Fallback.of(defaultResult);
 Throw a custom exception:
 
 ```java
-Fallback<Object> fallback = Fallback.ofException(e -> new CustomException(e.getLastFailure()));
+Fallback<Object> fallback = Fallback.ofException(e -> new CustomException(e.getException()));
 ```
 
 Or compute an alternative result such as from a backup resource:
@@ -56,13 +56,13 @@ When using a Fallback in combination with another policy, it's common to configu
 [Fallbacks][Fallback] support event listeners that can tell you when the last execution attempt failed:
 
 ```java
-builder.onFailedAttempt(e -> log.error("Connection failed", e.getLastFailure()))
+builder.onFailedAttempt(e -> log.error("Connection failed", e.getException()))
 ```
 
 When the fallback attempt failed:
 
 ```java
-builder.onFailure(e -> log.error("Failed to connect to backup", e.getFailure()));
+builder.onFailure(e -> log.error("Failed to connect to backup", e.getException()));
 ```
 
 Or when the execution or fallback attempt succeeded:
