@@ -19,6 +19,10 @@
   - [Strong Typing][strong-typing]
   - [Extending Failsafe][extending]
 
+- Modules
+  - [OkHttp][okhttp]
+  - [Retrofit][retrofit]
+
 - Resources
   - [Javadocs][javadoc]
   - [Gitter Chat][gitter]

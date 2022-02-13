@@ -17,8 +17,8 @@
 [circuit-breaker-standalone]: {{ "/circuit-breaker#standalone-usage" | relative_url }}
 [rate-limiters]: {{ "/rate-limiter" | relative_url }}
 
-[feign]: {{ "/feign" | relative_url }}
 [okhttp]: {{ "/okhttp" | relative_url }}
+[retrofit]: {{ "/retrofit" | relative_url }}
 
 [async-execution]: {{ "/async-execution" | relative_url }}
 [async-integration]: {{ "/async-execution#async-integration" | relative_url }}
@@ -88,8 +88,12 @@
 [jitter-duration]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withJitter-java.time.Duration-
 [jitter-factor]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#withJitter-double-
 [retries-exceeded]: {{ site.url }}/javadoc/dev/failsafe/RetryPolicyBuilder.html#onRetriesExceeded-dev.failsafe.event.EventListener-
-
 [interrupt]: {{ site.url }}/javadoc/dev/failsafe/TimeoutBuilder.html#withInterrupt--
+
+<!-- Failsafe Modules Javadocs - Classes -->
+
+[FailsafeCall-okhttp]: {{ site.url }}/javadoc/dev/failsafe/okhttp/FailsafeCall.html
+[FailsafeCall-retrofit]: {{ site.url }}/javadoc/dev/failsafe/retrofit/FailsafeCall.html
 
 <!-- JDK Javadocs -->
 
@@ -107,9 +111,16 @@
 [is-interrupted]: https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html#isInterrupted--
 [interrupts]: https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html
 
+<!-- 3rd party Javadocs -->
+
+[okhttp-Call]: https://square.github.io/okhttp/4.x/okhttp/okhttp3/-call/
+[okhttp-Response]: https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response/
+[retrofit-Call]: https://square.github.io/retrofit/2.x/retrofit/retrofit2/Call.html
+[retrofit-Response]: https://square.github.io/retrofit/2.x/retrofit/retrofit2/Response.html
+
 <!-- 3rd party libs -->
-[feign-lib]: https://github.com/OpenFeign/feign
 [okhttp-lib]: https://square.github.io/okhttp/
+[retrofit-lib]: https://github.com/square/retrofit
 
 <!-- Misc links -->
 
