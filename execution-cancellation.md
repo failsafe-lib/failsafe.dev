@@ -9,14 +9,22 @@ title: Execution Cancellation
 1. TOC
 {:toc}
 
-Failsafe supports cancellation and optional interruption of executions. Cancellation and interruption can be triggered by a [Timeout][timeouts] or through an async execution's [Future]:
+Failsafe supports cancellation and optional interruption of executions. Cancellation and interruption can be triggered by a [Timeout][timeouts]. Cancellation can also be manually performed for synchronous executions with a [Call][]:
+
+```java
+Call<Connection> connect = Failsafe.with(retryPolicy).getCall(this::connect);
+scheduler.schedule(connect::cancel, 10, TimeUnit.SECONDS);
+Connection connection = connect.execute();
+```
+
+For async executions, cancellation and interruption can be performed through the resulting [Future]:
 
 ```java
 Future<Connection> future = Failsafe.with(retryPolicy).getAsync(this::connect);
 future.cancel(shouldInterrupt);
 ```
 
-Cancellation will cause any async execution retries and timeout attempts to stop. Interruption will cause the execution thread's [interrupt][interrupts] flag to be set.
+Cancellation will cause any execution retries and timeout attempts to stop. Interruption will cause the execution thread's [interrupt][interrupts] flag to be set.
 
 ## Cooperative Cancellation
 
@@ -39,6 +47,18 @@ Non-blocking executions can cooperate with [interruption][interrupt] by periodic
 Failsafe.with(timeout).getAsync(()-> {
   while (!Thread.isInterrupted())
     doBlockingWork();
+});
+```
+
+## Propagating Cancellations
+
+Execution cancellations can be propagated to other code via an `onCancel` callback, allowing you to wrap other code that supports cancellation:
+
+```java
+Failsafe.with(retryPolicy).getAsync(ctx -> {
+  ServiceCall call = createServiceCall();
+  ctx.onCancel(call::cancel);
+  call.perform();
 });
 ```
 
