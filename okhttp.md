@@ -9,7 +9,15 @@ title: OkHttp
 1. TOC
 {:toc}
 
-The Failsafe [OkHttp][okhttp-lib] integration allows Failsafe policies to be composed around OkHttp calls via a [FailsafeCall][FailsafeCall-okhttp]:
+The Failsafe [OkHttp][okhttp-lib] integration allows Failsafe [policies] to be composed around OkHttp calls.
+
+## Setup
+
+Add the latest [failsafe][maven] and [failsafe-okhttp][maven-okhttp] dependencies to your project.
+
+## Usage
+
+Creating a [FailsafeCall][FailsafeCall-okhttp] that composes a policy around an OkHttp [Call][okhttp-Call] is straightforward:
 
 ```java
 Call call = client.newCall(request);
@@ -22,7 +30,7 @@ Response response = failsafeCall.execute();
 
 Failure handling works just as it does with any Failsafe execution.
 
-## Async Execution
+### Async Execution
 
 Async execution can also be performed for a [FailsafeCall][FailsafeCall-okhttp], which returns a [CompletableFuture]:
 
@@ -30,7 +38,7 @@ Async execution can also be performed for a [FailsafeCall][FailsafeCall-okhttp],
 CompletableFuture<Response> future = failsafeCall.executeAsync();
 ```
 
-## Policy Composition
+### Policy Composition
 
 Multiple policies can be [composed][policy-composition] around an OkHttp [Call][okhttp-Call]:
 
@@ -49,7 +57,7 @@ FailsafeCall failsafeCall = FailsafeCall.with(fallback, retryPolicy, circuitBrea
 
 See the [policy-composition] docs for more details.
 
-## Cancellation
+### Cancellation
 
 When a [FailsafeCall][FailsafeCall-okhttp] is cancelled, the underlying OkHttp [Call][okhttp-Call] is also cancelled:
 
@@ -64,7 +72,7 @@ CompletableFuture<Response> future = failsafeCall.executeAsync();
 future.cancel(false);
 ```
 
-## Other Configuration
+### Failsafe Executor
 
 A [FailsafeExecutor] configured with [event listeners][event-listeners] or an [ExecutorService][executorservice-configuration] can be used to create a [FailsafeCall][FailsafeCall-okhttp]:
 

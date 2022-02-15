@@ -9,7 +9,15 @@ title: Retrofit
 1. TOC
 {:toc}
 
-The Failsafe [Retrofit][retrofit-lib] integration allows Failsafe policies to be composed around Retrofit calls via a [FailsafeCall][FailsafeCall-retrofit]:
+The Failsafe [Retrofit][retrofit-lib] integration allows Failsafe [policies] to be composed around Retrofit calls.
+
+## Setup
+
+Add the latest [failsafe][maven] and [failsafe-retrofit][maven-retrofit] dependencies to your project.
+
+## Usage
+
+Creating a [FailsafeCall][FailsafeCall-retrofit] that composes a policy around a Retrofit [Call][retrofit-Call] is straightforward:
 
 ```java
 Call call = client.newCall(request);
@@ -22,7 +30,7 @@ Response<User> response = failsafeCall.execute();
 
 Failure handling works just as it does with any Failsafe execution.
 
-## Async Execution
+### Async Execution
 
 Async execution can also be performed for a [FailsafeCall][FailsafeCall-retrofit], which returns a [CompletableFuture]:
 
@@ -30,7 +38,7 @@ Async execution can also be performed for a [FailsafeCall][FailsafeCall-retrofit
 CompletableFuture<Response<User>> future = failsafeCall.executeAsync();
 ```
 
-## Policy Composition
+### Policy Composition
 
 Multiple policies can be [composed][policy-composition] around a Retrofit [Call][retrofit-Call]:
 
@@ -50,7 +58,7 @@ FailsafeCall<User> failsafeCall = FailsafeCall.with(fallback, retryPolicy, circu
 
 See the [policy-composition] docs for more details.
 
-## Cancellation
+### Cancellation
 
 When a [FailsafeCall][FailsafeCall-retrofit] is cancelled, the underlying Retrofit [Call][retrofit-Call] is also cancelled:
 
@@ -65,7 +73,7 @@ CompletableFuture<Response<User>> future = failsafeCall.executeAsync();
 future.cancel(false);
 ```
 
-## Other Configuration
+### Failsafe Executor
 
 A [FailsafeExecutor] configured with [event listeners][event-listeners] or an [ExecutorService][executorservice-configuration] can be used to create a [FailsafeCall][FailsafeCall-okhttp]:
 

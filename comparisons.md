@@ -42,7 +42,7 @@ Failsafe and Resilience4j are similar libraries in what they aim to offer users.
 - Failsafe provides [strong typing][strong-typing] across all of its APIs.
 - Failsafe offers an extensible [SPI][extending] for implementing custom policies.
 - Resilience4j has a built-in named policy registry.
-- Resilience4j offers modules for integration with some 3rd party libraries.
+- Resilience4j offers some additional modules for 3rd party library integration.
 
 ### References:
 
