@@ -11,7 +11,7 @@ title: Policies
 
 ## Failure Handling
 
-Failsafe policies determine which execution [results or exceptions][FailurePolicyBuilder] to handle as failures and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific failures or conditions:
+Failsafe policies add resilience by detecting failures and handling them. Each policy determines which execution [results or exceptions][FailurePolicyBuilder] to consider failures and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific failures or conditions:
 
 ```java
 policyBuilder
