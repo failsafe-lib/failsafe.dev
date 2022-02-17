@@ -9,7 +9,9 @@ title: Execution Cancellation
 1. TOC
 {:toc}
 
-Failsafe supports cancellation and optional interruption of executions. Cancellation and interruption can be triggered by a [Timeout][timeouts]. Cancellation can also be manually performed for synchronous executions with a [Call][]:
+Failsafe supports cancellation and optional interruption of executions, which can be triggered manually or by [Timeout][timeouts] policies. 
+
+Synchronous executions can be manually cancelled or interrupted through a [Call][]:
 
 ```java
 Call<Connection> call = Failsafe.with(retryPolicy).newCall(this::connect);
@@ -17,7 +19,7 @@ scheduler.schedule(() -> call.cancel(false), 10, TimeUnit.SECONDS);
 Connection connection = call.execute();
 ```
 
-For async executions, cancellation and interruption can be performed through the resulting [Future]:
+Async executions can be cancelled or interrupted through the resulting [Future]:
 
 ```java
 CompletableFuture<Connection> future = Failsafe.with(retryPolicy).getAsync(this::connect);
