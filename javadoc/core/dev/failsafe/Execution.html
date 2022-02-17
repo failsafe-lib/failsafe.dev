@@ -157,7 +157,7 @@ extends <a href="../../dev/failsafe/ExecutionContext.html" title="interface in d
 <td class="colFirst"><code>static &lt;R&gt;&nbsp;<a href="../../dev/failsafe/Execution.html" title="interface in dev.failsafe">Execution</a>&lt;R&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/Execution.html#of-dev.failsafe.Policy-dev.failsafe.Policy...-">of</a></span>(<a href="../../dev/failsafe/Policy.html" title="interface in dev.failsafe">Policy</a>&lt;R&gt;&nbsp;outerPolicy,
   <a href="../../dev/failsafe/Policy.html" title="interface in dev.failsafe">Policy</a>&lt;R&gt;...&nbsp;policies)</code>
-<div class="block">Creates a new <code>SyncExecutionImpl</code> that will use the <code>outerPolicy</code> and <code>innerPolicies</code> to handle
+<div class="block">Creates a new <code>Execution</code> that will use the <code>outerPolicy</code> and <code>innerPolicies</code> to handle
  failures.</div>
 </td>
 </tr>
@@ -220,7 +220,7 @@ extends <a href="../../dev/failsafe/ExecutionContext.html" title="interface in d
 <pre><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
 static&nbsp;&lt;R&gt;&nbsp;<a href="../../dev/failsafe/Execution.html" title="interface in dev.failsafe">Execution</a>&lt;R&gt;&nbsp;of(<a href="../../dev/failsafe/Policy.html" title="interface in dev.failsafe">Policy</a>&lt;R&gt;&nbsp;outerPolicy,
                                         <a href="../../dev/failsafe/Policy.html" title="interface in dev.failsafe">Policy</a>&lt;R&gt;...&nbsp;policies)</pre>
-<div class="block">Creates a new <code>SyncExecutionImpl</code> that will use the <code>outerPolicy</code> and <code>innerPolicies</code> to handle
+<div class="block">Creates a new <code>Execution</code> that will use the <code>outerPolicy</code> and <code>innerPolicies</code> to handle
  failures. Policies are applied in reverse order, with the last policy being applied first.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
