@@ -112,6 +112,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [SecureNative](https://www.securenative.com/)
 * [Serverless](https://serverless.com/)
 * [Skyscanner](https://skyscanner.net/)
+* [Snowflake](https://www.snowflake.com/)
 * [Spotify](https://www.spotify.com)
 * [Stackify](https://stackify.com/)
 * [Steamroot](https://streamroot.io)
