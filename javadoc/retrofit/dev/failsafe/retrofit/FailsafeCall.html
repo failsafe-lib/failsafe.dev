@@ -114,7 +114,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">FailsafeCall&lt;R&gt;</span>
 extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">A Failsafe wrapped Retrofit <code>Call</code>. Supports synchronous and asynchronous executions, and cancellation.</div>
+<div class="block">A Failsafe wrapped Retrofit <a href="https://failsafe.dev/javadoc/core/dev/failsafe/Call.html?is-external=true" title="class or interface in dev.failsafe"><code>Call</code></a>. Supports synchronous and asynchronous executions, and cancellation.</div>
 </li>
 </ul>
 </div>
@@ -190,12 +190,12 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static &lt;R&gt;&nbsp;<a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/failsafe/retrofit/FailsafeCall.html#with-dev.failsafe.FailsafeExecutor-">with</a></span>(dev.failsafe.FailsafeExecutor&lt;retrofit2.Response&lt;R&gt;&gt;&nbsp;failsafeExecutor)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/failsafe/retrofit/FailsafeCall.html#with-dev.failsafe.FailsafeExecutor-">with</a></span>(<a href="https://failsafe.dev/javadoc/core/dev/failsafe/FailsafeExecutor.html?is-external=true" title="class or interface in dev.failsafe">FailsafeExecutor</a>&lt;retrofit2.Response&lt;R&gt;&gt;&nbsp;failsafeExecutor)</code>
 <div class="block">Returns a FailsafeCallBuilder for the <code>failsafeExecutor</code>.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>static &lt;R,P extends dev.failsafe.Policy&lt;retrofit2.Response&lt;R&gt;&gt;&gt;<br><a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;</code></td>
+<td class="colFirst"><code>static &lt;R,P extends <a href="https://failsafe.dev/javadoc/core/dev/failsafe/Policy.html?is-external=true" title="class or interface in dev.failsafe">Policy</a>&lt;retrofit2.Response&lt;R&gt;&gt;&gt;<br><a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/failsafe/retrofit/FailsafeCall.html#with-P-P...-">with</a></span>(P&nbsp;outerPolicy,
     P...&nbsp;policies)</code>
 <div class="block">Returns a FailsafeCallBuilder for the <code>outerPolicy</code> and <code>policies</code>.</div>
@@ -232,10 +232,10 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>with</h4>
 <pre><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
-public static&nbsp;&lt;R,P extends dev.failsafe.Policy&lt;retrofit2.Response&lt;R&gt;&gt;&gt;&nbsp;<a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;&nbsp;with(P&nbsp;outerPolicy,
-                                                                                                                             P...&nbsp;policies)</pre>
-<div class="block">Returns a FailsafeCallBuilder for the <code>outerPolicy</code> and <code>policies</code>. See <code>Failsafe.with(Policy,
- Policy[])</code> for docs on how policy composition works.</div>
+public static&nbsp;&lt;R,P extends <a href="https://failsafe.dev/javadoc/core/dev/failsafe/Policy.html?is-external=true" title="class or interface in dev.failsafe">Policy</a>&lt;retrofit2.Response&lt;R&gt;&gt;&gt;&nbsp;<a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;&nbsp;with(P&nbsp;outerPolicy,
+                                                                                                                P...&nbsp;policies)</pre>
+<div class="block">Returns a FailsafeCallBuilder for the <code>outerPolicy</code> and <code>policies</code>. See <a href="https://failsafe.dev/javadoc/core/dev/failsafe/Failsafe.html?is-external=true#with-P-P...-" title="class or interface in dev.failsafe"><code>Failsafe.with(Policy,
+ Policy[])</code></a> for docs on how policy composition works.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>R</code> - result type</dd>
@@ -251,7 +251,7 @@ public static&nbsp;&lt;R,P extends dev.failsafe.Policy&lt;retrofit2.Response&lt;
 <ul class="blockList">
 <li class="blockList">
 <h4>with</h4>
-<pre>public static&nbsp;&lt;R&gt;&nbsp;<a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;&nbsp;with(dev.failsafe.FailsafeExecutor&lt;retrofit2.Response&lt;R&gt;&gt;&nbsp;failsafeExecutor)</pre>
+<pre>public static&nbsp;&lt;R&gt;&nbsp;<a href="../../../dev/failsafe/retrofit/FailsafeCall.FailsafeCallBuilder.html" title="class in dev.failsafe.retrofit">FailsafeCall.FailsafeCallBuilder</a>&lt;R&gt;&nbsp;with(<a href="https://failsafe.dev/javadoc/core/dev/failsafe/FailsafeExecutor.html?is-external=true" title="class or interface in dev.failsafe">FailsafeExecutor</a>&lt;retrofit2.Response&lt;R&gt;&gt;&nbsp;failsafeExecutor)</pre>
 <div class="block">Returns a FailsafeCallBuilder for the <code>failsafeExecutor</code>.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -298,7 +298,7 @@ public static&nbsp;&lt;R,P extends dev.failsafe.Policy&lt;retrofit2.Response&lt;
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if the call has already been executed</dd>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the request could not be executed due to cancellation, a connectivity problem, or timeout</dd>
-<dd><code>dev.failsafe.FailsafeException</code> - if the execution fails with a checked Exception. <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true#getCause--" title="class or interface in java.lang"><code>Throwable.getCause()</code></a> can
+<dd><code><a href="https://failsafe.dev/javadoc/core/dev/failsafe/FailsafeException.html?is-external=true" title="class or interface in dev.failsafe">FailsafeException</a></code> - if the execution fails with a checked Exception. <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true#getCause--" title="class or interface in java.lang"><code>Throwable.getCause()</code></a> can
  be used to learn the underlying checked exception.</dd>
 </dl>
 </li>
