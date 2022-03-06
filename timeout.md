@@ -28,13 +28,13 @@ If a cancellation is triggered by a `Timeout`, the execution is completed with `
 When a `Timeout` is [composed][policy-composition] _outside_ a `RetryPolicy`, a timeout occurrence will cancel any _inner_ retries:
 
 ```java
-Failsafe.with(timeout, retryPolicy).run(this::connect);
+Failsafe.with(timeout).compose(retryPolicy).run(this::connect);
 ```
 
 When a `Timeout` is [composed][policy-composition] _inside_ a `RetryPolicy`, a timeout occurrence will not automically cancel any _outer_ retries:
 
 ```java
-Failsafe.with(retryPolicy, timeout).run(this::connect);
+Failsafe.with(retryPolicy).compose(timeout).run(this::connect);
 ```
 
 ## Async Execution Timeouts
