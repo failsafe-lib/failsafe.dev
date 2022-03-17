@@ -95,6 +95,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Nexmo](http://nexmo.com)
 * [Nuxeo](http://www.nuxeo.com)
 * [O2](https://www.o2.co.uk/)
+* [Octopus](https://octopus.com)
 * [OneOps](http://oneops.com)
 * [OpenTable](www.opentable.com)
 * [Oracle](https://www.oracle.com/)
