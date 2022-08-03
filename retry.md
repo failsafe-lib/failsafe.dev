@@ -9,7 +9,7 @@ title: Retry
 1. TOC
 {:toc}
 
-[Retry policies][RetryPolicy] express when retries should be performed for an execution.
+[Retry policies][RetryPolicy] will retry failed executions a certain number of times, with an optional delay between attempts. If an execution fails after retries have been exceeded, the last result or exception is returned or thrown. If additional handling or an alternative result is needed, additional policies, such as a [fallbacks], can be [composed][policy-composition] around a [RetryPolicy].
 
 ## Attempts
 
