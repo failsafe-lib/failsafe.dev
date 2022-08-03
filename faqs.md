@@ -4,9 +4,10 @@ title: Frequently Asked Questions
 ---
 
 # Frequently Asked Questions
+{: .no_toc }
 
 1. TOC
-{:toc}
+{:toc .display}
 
 ## How does Failsafe use threads?
 
@@ -24,6 +25,25 @@ For async executions, retries, fallbacks, and rate limiter or bulkhead waiting, 
 For async work that needs to be scheduled with a delay, Failsafe will either use a `ScheduledExecutorService` or `Scheduler` if one has been configured, else it will create a single threaded `ScheduledExecutorService` internally. This scheduler delegates executions to the configured executor or `commonPool`, will only be created if needed, and is shared across all Failsafe instances that don't configure a scheduler.
 
 If no executor or scheduler is configured and the `ForkJoinPool.commonPool` has a parallelism of 1 (which occurs when the number of processors is <= 2), Failsafe will create and use an internal `ForkJoinPool` with a parallelism of 2 instead. This is necessary to support concurrent execution and `Timeout` checks. As with the internal `ScheduledExecutorService`, this  `ForkJoinPool` will only be created if needed, and will be shared across all Failsafe instances that don't configure an executor.
+
+## How to I throw an exception when retries are exceeded?
+
+When a `RetryPolicy` is exceeded, the last execution result or exception is returned or thrown. In the case that a result was returned but an exception is desired, the best approach is to wrap a RetryPolicy in a Fallback that converts a failed result into an exception:
+
+```java
+// Retry on a null result
+RetryPolicy<Connection> retryPolicy = RetryPolicy.<Connection>builder()
+  .handleResult(null)
+  .build();
+// Fallback on a null result to a ConnectException
+Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> {
+    return new ConnectException("Connection failed after 3 attempts");
+  })
+  .handleResult(null)
+  .build();
+
+Failsafe.with(fallback).compose(retryPolicy).get(this::getConnection);
+```
 
 ## Why is TimeoutExceededException not being handled?
 
@@ -47,24 +67,5 @@ If you have specific failure handling configuration and also want to handle `Tim
 ## Why is CircuitBreakerOpenException not being handled?
 
 As with `TimeoutExceededException` described above, if you configure specific [result or failure handlers][FailurePolicyBuilder] you may need to ensure that `CircuitBreakerOpenException` is configured to be handled.
-
-## How to I throw an exception when retries are exceeded?
-
-When a `RetryPolicy` is exceeded, the last execution result or exception is returned or thrown. In the case that a result was returned but an exception is desired, the best approach is to wrap a RetryPolicy in a Fallback that converts a failed result into an exception:
-
-```java
-// Retry on a null result
-RetryPolicy<Connection> retryPolicy = RetryPolicy.<Connection>builder()
-  .handleResult(null)
-  .build();
-// Fallback on a null result to a ConnectException
-Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> {
-    return new ConnectException("Connection failed after 3 attempts");
-  })
-  .handleResult(null)
-  .build();
-
-Failsafe.with(fallback).compose(retryPolicy).get(this::getConnection);
-```
 
 {% include common-links.html %}

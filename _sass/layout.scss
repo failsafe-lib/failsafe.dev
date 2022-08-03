@@ -52,7 +52,7 @@
 
 .main-content {
   @include mq(sm) {
-    #markdown-toc {
+    #markdown-toc:not(.display) {
       display: none;
     }
   }
