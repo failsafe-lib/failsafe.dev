@@ -177,7 +177,7 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/RetryPolicyConfig.html#getDelay--">getDelay</a></span>()</code>
-<div class="block">Returns the delay between retries.</div>
+<div class="block">Returns the delay between retries, else <a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true#ZERO" title="class or interface in java.time"><code>Duration.ZERO</code></a> if delays have not been configured.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -189,13 +189,13 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/RetryPolicyConfig.html#getDelayMax--">getDelayMax</a></span>()</code>
-<div class="block">Returns the max delay between retries.</div>
+<div class="block">Returns the max random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/RetryPolicyConfig.html#getDelayMin--">getDelayMin</a></span>()</code>
-<div class="block">Returns the min delay between retries.</div>
+<div class="block">Returns the min random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -225,7 +225,7 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/RetryPolicyConfig.html#getMaxDelay--">getMaxDelay</a></span>()</code>
-<div class="block">Returns the max delay between backoff retries.</div>
+<div class="block">Returns the max delay between backoff retries, else <code>null</code> if backoff delays have not been configured.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -342,7 +342,8 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <li class="blockList">
 <h4>getDelay</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;getDelay()</pre>
-<div class="block">Returns the delay between retries. Defaults to <a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true#ZERO" title="class or interface in java.time"><code>Duration.ZERO</code></a>.</div>
+<div class="block">Returns the delay between retries, else <a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true#ZERO" title="class or interface in java.time"><code>Duration.ZERO</code></a> if delays have not been configured. If backoff
+ delays are configured, this value will represent the initial delay.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../dev/failsafe/DelayablePolicyConfig.html#getDelay--">getDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in dev.failsafe">DelayablePolicyConfig</a>&lt;<a href="../../dev/failsafe/RetryPolicyConfig.html" title="type parameter in RetryPolicyConfig">R</a>&gt;</code></dd>
@@ -362,7 +363,7 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <li class="blockList">
 <h4>getDelayMin</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;getDelayMin()</pre>
-<div class="block">Returns the min delay between retries.</div>
+<div class="block">Returns the min random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-java.time.Duration-"><code>RetryPolicyBuilder.withDelay(Duration, Duration)</code></a>, 
@@ -377,7 +378,7 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <li class="blockList">
 <h4>getDelayMax</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;getDelayMax()</pre>
-<div class="block">Returns the max delay between retries.</div>
+<div class="block">Returns the max random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-java.time.Duration-"><code>RetryPolicyBuilder.withDelay(Duration, Duration)</code></a>, 
@@ -451,7 +452,7 @@ extends <a href="../../dev/failsafe/DelayablePolicyConfig.html" title="class in 
 <li class="blockList">
 <h4>getMaxDelay</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;getMaxDelay()</pre>
-<div class="block">Returns the max delay between backoff retries.</div>
+<div class="block">Returns the max delay between backoff retries, else <code>null</code> if backoff delays have not been configured.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../dev/failsafe/RetryPolicyBuilder.html#withBackoff-java.time.Duration-java.time.Duration-"><code>RetryPolicyBuilder.withBackoff(Duration, Duration)</code></a>, 

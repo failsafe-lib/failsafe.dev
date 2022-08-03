@@ -312,7 +312,7 @@ implements <a href="../../dev/failsafe/PolicyListeners.html" title="interface in
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-">withDelay</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;delay)</code>
-<div class="block">Sets the <code>delay</code> to occur between retries.</div>
+<div class="block">Sets the fixed <code>delay</code> to occur between retries.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
@@ -505,8 +505,8 @@ public final&nbsp;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="cl
 <li class="blockList">
 <h4>abortOn</h4>
 <pre>public&nbsp;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;&nbsp;abortOn(<a href="../../dev/failsafe/function/CheckedPredicate.html" title="interface in dev.failsafe.function">CheckedPredicate</a>&lt;? extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&gt;&nbsp;abortPredicate)</pre>
-<div class="block">Specifies that retries should be aborted if the <code>abortPredicate</code> matches the exception. Any exception
- thrown from the <code>abortPredicate</code> is treated as a <code>false</code> result.</div>
+<div class="block">Specifies that retries should be aborted if the <code>abortPredicate</code> matches the exception. Any exception thrown
+ from the <code>abortPredicate</code> is treated as a <code>false</code> result.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if <code>abortPredicate</code> is null</dd>
@@ -700,7 +700,7 @@ public final&nbsp;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="cl
 <li class="blockList">
 <h4>withDelay</h4>
 <pre>public&nbsp;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;&nbsp;withDelay(<a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true" title="class or interface in java.time">Duration</a>&nbsp;delay)</pre>
-<div class="block">Sets the <code>delay</code> to occur between retries. Replaces any previously configured <a href="../../dev/failsafe/RetryPolicyBuilder.html#withBackoff-java.time.Duration-java.time.Duration-"><code>backoff</code></a> or <a href="../../dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-java.time.Duration-"><code>random</code></a> delays.</div>
+<div class="block">Sets the fixed <code>delay</code> to occur between retries. Replaces any previously configured <a href="../../dev/failsafe/RetryPolicyBuilder.html#withBackoff-java.time.Duration-java.time.Duration-"><code>backoff</code></a> or <a href="../../dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-java.time.Duration-"><code>random</code></a> delays.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../dev/failsafe/DelayablePolicyBuilder.html#withDelay-java.time.Duration-">withDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../dev/failsafe/DelayablePolicyBuilder.html" title="class in dev.failsafe">DelayablePolicyBuilder</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;,<a href="../../dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a>&lt;<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;,<a href="../../dev/failsafe/RetryPolicyBuilder.html" title="type parameter in RetryPolicyBuilder">R</a>&gt;</code></dd>

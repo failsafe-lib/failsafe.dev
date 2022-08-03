@@ -742,7 +742,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyConfig.html#getDelay--">getDelay()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a></dt>
 <dd>
-<div class="block">Returns the delay between retries.</div>
+<div class="block">Returns the delay between retries, else <a href="http://docs.oracle.com/javase/8/docs/api/java/time/Duration.html?is-external=true#ZERO" title="class or interface in java.time"><code>Duration.ZERO</code></a> if delays have not been configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/spi/DefaultScheduledFuture.html#getDelay-java.util.concurrent.TimeUnit-">getDelay(TimeUnit)</a></span> - Method in class dev.failsafe.spi.<a href="dev/failsafe/spi/DefaultScheduledFuture.html" title="class in dev.failsafe.spi">DefaultScheduledFuture</a></dt>
 <dd>&nbsp;</dd>
@@ -762,11 +762,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyConfig.html#getDelayMax--">getDelayMax()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a></dt>
 <dd>
-<div class="block">Returns the max delay between retries.</div>
+<div class="block">Returns the max random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyConfig.html#getDelayMin--">getDelayMin()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a></dt>
 <dd>
-<div class="block">Returns the min delay between retries.</div>
+<div class="block">Returns the min random delay between retries, else <code>null</code> if random delays have not been configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/DelayablePolicyConfig.html#getDelayResult--">getDelayResult()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/DelayablePolicyConfig.html" title="class in dev.failsafe">DelayablePolicyConfig</a></dt>
 <dd>
@@ -943,7 +943,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyConfig.html#getMaxDelay--">getMaxDelay()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a></dt>
 <dd>
-<div class="block">Returns the max delay between backoff retries.</div>
+<div class="block">Returns the max delay between backoff retries, else <code>null</code> if backoff delays have not been configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyConfig.html#getMaxDuration--">getMaxDuration()</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyConfig.html" title="class in dev.failsafe">RetryPolicyConfig</a></dt>
 <dd>
@@ -1849,7 +1849,7 @@ the order they are declared.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyBuilder.html#withDelay-java.time.Duration-">withDelay(Duration)</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a></dt>
 <dd>
-<div class="block">Sets the <code>delay</code> to occur between retries.</div>
+<div class="block">Sets the fixed <code>delay</code> to occur between retries.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/RetryPolicyBuilder.html#withDelay-long-long-java.time.temporal.ChronoUnit-">withDelay(long, long, ChronoUnit)</a></span> - Method in class dev.failsafe.<a href="dev/failsafe/RetryPolicyBuilder.html" title="class in dev.failsafe">RetryPolicyBuilder</a></dt>
 <dd>
