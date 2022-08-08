@@ -35,6 +35,7 @@ When a `RetryPolicy` is exceeded, the last execution result or exception is retu
 RetryPolicy<Connection> retryPolicy = RetryPolicy.<Connection>builder()
   .handleResult(null)
   .build();
+  
 // Fallback on a null result with a ConnectException
 Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> {
     return new ConnectException("Connection failed after retries");

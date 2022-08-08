@@ -41,7 +41,7 @@ Fallback<Object> fallback = Fallback.builder(this::blockingCall).withAsync().bui
 
 ## Failure Handling
 
-[Fallbacks][Fallback] can be configured to handle only [certain results or failures][failure-handling]:
+[Fallbacks][Fallback] can be configured to handle only [certain results or exceptions][failure-handling]:
 
 ```java
 builder

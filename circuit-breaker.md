@@ -90,7 +90,7 @@ If a success threshold is not configured, then the failure threshold is used to 
 
 ## Failure Handling
 
-A [CircuitBreaker] can be configured to handle only [certain results or failures][failure-handling], in combination with any of the configuration described above:
+A [CircuitBreaker] can be configured to handle only [certain results or exceptions][failure-handling], in combination with any of the configuration described above:
 
 ```java
 builder

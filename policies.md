@@ -16,7 +16,7 @@ Failsafe policies add resilience by detecting failures and handling them. Each p
 ```java
 policyBuilder
   .handle(ConnectException.class, SocketException.class)
-  .handleIf(failure -> failure instanceof ConnectException);
+  .handleIf(e -> e instanceof ConnectException);
 ```
 
 They can also be configured to handle specific results or result conditions:
@@ -70,9 +70,9 @@ Consider the following policy composition execution:
 - `RetryPolicy` calls the `CircuitBreaker`
 - `CircuitBreaker` rejects the execution if the breaker is open, else calls the `Supplier`
 - `Supplier` executes and returns a result or throws an exception
-- `CircuitBreaker` records the result as either a success or failure, based on its configuration, possibly changing the state of the breaker, then returns or throws
-- `RetryPolicy` records the result as either a success or failure, based on its configuration, and either retries or returns the result or exception
-- `Fallback` handles the result or failure according to its configuration and returns a fallback result or exception if needed
+- `CircuitBreaker` records the result as either a success or failure, based on its [configuration](#failure-handling), possibly changing the state of the breaker, then returns or throws
+- `RetryPolicy` records the result as either a success or failure, based on its [configuration](#failure-handling), and either retries or returns the result or exception
+- `Fallback` handles the result or exception according to its configuration and returns a fallback result or exception if needed
 - Failsafe returns the final result or exception to the caller
 
 ### Composition and Exception Handling
