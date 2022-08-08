@@ -11,7 +11,7 @@ title: Policies
 
 ## Failure Handling
 
-Failsafe policies add resilience by detecting failures and handling them. Each policy determines which execution [results or exceptions][FailurePolicyBuilder] to consider failures and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific failures or conditions:
+Failsafe policies add resilience by detecting failures and handling them. Each policy determines which execution [results or exceptions][FailurePolicyBuilder] to consider as failures and how to handle them. By default, policies handle any `Exception` that is thrown. But policies can also be configured to handle more specific exceptions or conditions:
 
 ```java
 policyBuilder
@@ -75,6 +75,20 @@ Consider the following policy composition execution:
 - `Fallback` handles the result or failure according to its configuration and returns a fallback result or exception if needed
 - Failsafe returns the final result or exception to the caller
 
+### Composition and Exception Handling
+
+While policies handle all `Exception` instances by default, it's common to configure a policy to handle more specific exceptions, as [described above](#failure-handling):
+
+```java
+retryPolicyBuilder.handle(ConnectException.class);
+```
+
+But when doing so for a policy that is composed around other policies, you may want to also configure the outer policy to handle exceptions thrown by any inner policies, depending on your use case:
+
+```java
+retryPolicyBuilder.handle(CircuitBreakerOpenException.class, TimeoutExceededException.class);
+```
+
 ### Composition Recommendations
 
 A typical policy composition might place a `Fallback` as the outer-most policy, followed by a `RetryPolicy`, a `CircuitBreaker` or `RateLimiter`, a `Bulkhead`, and a `Timeout` as the inner-most policy:
@@ -83,7 +97,7 @@ A typical policy composition might place a `Fallback` as the outer-most policy, 
 Failsafe.with(fallback, retryPolicy, circuitBreaker, bulkhead, timeout)
 ```
 
-That said, it really depends on how the policies are being used, and different compositions make sense for different use cases. 
+That said, it really depends on how the policies are being used, and different compositions make sense for different use cases.
 
 ## Supported Policies
 

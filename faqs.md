@@ -35,37 +35,14 @@ When a `RetryPolicy` is exceeded, the last execution result or exception is retu
 RetryPolicy<Connection> retryPolicy = RetryPolicy.<Connection>builder()
   .handleResult(null)
   .build();
-// Fallback on a null result to a ConnectException
+// Fallback on a null result with a ConnectException
 Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> {
-    return new ConnectException("Connection failed after 3 attempts");
+    return new ConnectException("Connection failed after retries");
   })
   .handleResult(null)
   .build();
 
 Failsafe.with(fallback).compose(retryPolicy).get(this::getConnection);
 ```
-
-## Why is TimeoutExceededException not being handled?
-
-It's common to use a `RetryPolicy` or `Fallback` together with a `Timeout`:
-
-```java
-Failsafe.with(fallback, retryPolicy, timeout).get(this::connect);
-```
-
-When you do, you may want to make sure that the `RetryPolicy` or `Fallback` are configured to handle `TimeoutExceededException`.
-
-By default, a policy will handle all `Exception` types. But if you configure specific [result or failure handlers][FailurePolicyBuilder], then it may not recognize a `TimeoutExceededException` as a failure and may not handle it. Ex:
-
-```java
-// Only handles ConnectException, not TimeoutExceededException
-retryPolicyBuilder.handle(ConnectException.class);
-```
-
-If you have specific failure handling configuration and also want to handle `TimeoutExceededException`, be sure to configure it.
-
-## Why is CircuitBreakerOpenException not being handled?
-
-As with `TimeoutExceededException` described above, if you configure specific [result or failure handlers][FailurePolicyBuilder] you may need to ensure that `CircuitBreakerOpenException` is configured to be handled.
 
 {% include common-links.html %}
