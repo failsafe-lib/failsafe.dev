@@ -17,7 +17,7 @@ Add the latest [failsafe][maven] and [failsafe-retrofit][maven-retrofit] depende
 
 ## Usage
 
-Creating a [FailsafeCall][FailsafeCall-retrofit] that composes a policy around a Retrofit [Call][retrofit-Call] is straightforward:
+Create a [FailsafeCall][FailsafeCall-retrofit] that composes a policy around a Retrofit [Call][retrofit-Call]:
 
 ```java
 Call call = client.newCall(request);

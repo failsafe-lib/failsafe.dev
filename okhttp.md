@@ -17,7 +17,7 @@ Add the latest [failsafe][maven] and [failsafe-okhttp][maven-okhttp] dependencie
 
 ## Usage
 
-Creating a [FailsafeCall][FailsafeCall-okhttp] that composes a policy around an OkHttp [Call][okhttp-Call] is straightforward:
+Create a [FailsafeCall][FailsafeCall-okhttp] that composes a policy around an OkHttp [Call][okhttp-Call]:
 
 ```java
 Call call = client.newCall(request);
