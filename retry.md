@@ -11,6 +11,17 @@ title: Retry
 
 [Retry policies][RetryPolicy] will retry failed executions a certain number of times, with an optional delay between attempts. If an execution fails after retries have been exceeded, the last result or exception is returned or thrown. If additional handling or an alternative result is needed, additional policies, such as a [fallbacks], can be [composed][policy-composition] around a [RetryPolicy].
 
+Creating a [RetryPolicy] is straightforward, for example:
+
+```java
+// Retry on a ConnectException up to 3 times with a 1 second delay between attempts
+RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
+  .handle(ConnectException.class)
+  .withDelay(Duration.ofSeconds(1))
+  .withMaxRetries(3)
+  .build();
+```
+
 ## Attempts
 
 By default, a [RetryPolicy] will perform a maximum of 3 execution attempts. You can configure a different max number of [attempts][max-attempts]:

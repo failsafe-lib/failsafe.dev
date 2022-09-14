@@ -11,14 +11,15 @@ title: Circuit Breaker
 
 [Circuit breakers][fowler-circuit-breaker] allow you to create systems that fail fast by temporarily disabling execution as a way of preventing system overload. There are two types of circuit breakers: *count based* and *time based*. *Count based* circuit breakers operate by tracking recent execution results up to a certain limit. *Time based* circuit breakers operate by tracking any number of execution results that occur within a time period.
 
-Creating a [CircuitBreaker] is straightforward:
+Creating a [CircuitBreaker] is straightforward, for example:
 
 ```java
+// Opens after 5 failures, half-opens after 1 minute, closes after 2 successes
 CircuitBreaker<Object> breaker = CircuitBreaker.builder()
   .handle(ConnectException.class)
-  .withFailureThreshold(3, 10)
-  .withSuccessThreshold(5)
+  .withFailureThreshold(5)
   .withDelay(Duration.ofMinutes(1))
+  .withSuccessThreshold(2)
   .build();
 ```
 
