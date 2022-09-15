@@ -30,7 +30,7 @@ By default, a [RetryPolicy] will perform a maximum of 3 execution attempts. You 
 builder.withMaxAttempts(3);
 ```
 
-Or a max number of [retries][max-retries]
+Or a max number of [retries][max-retries]:
 
 ```java
 builder.withMaxRetries(2);
