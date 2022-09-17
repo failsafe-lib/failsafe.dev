@@ -83,7 +83,7 @@ While policies handle all `Exception` instances by default, it's common to confi
 retryPolicyBuilder.handle(ConnectException.class);
 ```
 
-But when doing so for a policy that is composed around other policies, you may want to also configure the outer policy to handle exceptions thrown by any inner policies, depending on your use case:
+But when doing so for a policy that is composed around other policies, you may want to also configure an outer policy to handle exceptions thrown by any inner policies, depending on your use case:
 
 ```java
 retryPolicyBuilder.handle(CircuitBreakerOpenException.class, TimeoutExceededException.class);

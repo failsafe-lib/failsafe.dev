@@ -73,7 +73,7 @@ if (rateLimiter.tryAcquirePermit()) {
 }
 ```
 
-You can also integrate a rate limiter with an external scheduler to wait for a permit externally:
+You can also integrate a standalone rate limiter with an external scheduler to wait for a permit asynchronously:
 
 ```java
 Duration permitWaitTime = rateLimiter.reservePermit();

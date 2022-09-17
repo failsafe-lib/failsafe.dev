@@ -16,7 +16,7 @@ Add the latest [Failsafe dependency][maven] to your project.
 
 ## Getting Started
 
-To start, we'll create a [retry policy][retry] that defines which failures should be handled and when retries should be performed:
+To see how Failsafe works, we'll create a [retry policy][retry] that defines which failures to handle and when retries should be performed:
 
 ```java
 RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
