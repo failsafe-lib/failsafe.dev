@@ -531,7 +531,7 @@
 <dd>&nbsp;</dd>
 <dt><a href="dev/failsafe/event/ExecutionCompletedEvent.html" title="class in dev.failsafe.event"><span class="typeNameLink">ExecutionCompletedEvent</span></a>&lt;<a href="dev/failsafe/event/ExecutionCompletedEvent.html" title="type parameter in ExecutionCompletedEvent">R</a>&gt; - Class in <a href="dev/failsafe/event/package-summary.html">dev.failsafe.event</a></dt>
 <dd>
-<div class="block">Indicates an execution was completed.</div>
+<div class="block">Indicates an execution was completed or cancelled.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/event/ExecutionCompletedEvent.html#ExecutionCompletedEvent-R-java.lang.Throwable-dev.failsafe.ExecutionContext-">ExecutionCompletedEvent(R, Throwable, ExecutionContext&lt;R&gt;)</a></span> - Constructor for class dev.failsafe.event.<a href="dev/failsafe/event/ExecutionCompletedEvent.html" title="class in dev.failsafe.event">ExecutionCompletedEvent</a></dt>
 <dd>&nbsp;</dd>
@@ -1012,7 +1012,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/event/ExecutionEvent.html#getStartTime--">getStartTime()</a></span> - Method in class dev.failsafe.event.<a href="dev/failsafe/event/ExecutionEvent.html" title="class in dev.failsafe.event">ExecutionEvent</a></dt>
 <dd>
-<div class="block">Returns the time that the initial execution started, else <code>null</code> if an execution has not started yet.</div>
+<div class="block">Returns the time that the initial execution started, else <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true#empty--" title="class or interface in java.util"><code>Optional.empty()</code></a> if an execution has not started yet.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dev/failsafe/ExecutionContext.html#getStartTime--">getStartTime()</a></span> - Method in interface dev.failsafe.<a href="dev/failsafe/ExecutionContext.html" title="interface in dev.failsafe">ExecutionContext</a></dt>
 <dd>
