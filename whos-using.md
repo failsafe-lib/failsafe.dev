@@ -93,6 +93,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [LeanCloud](https://leancloud.cn)
 * [LendingClub](https://www.lendingclub.com/) 
 * [Logz.io](https://logz.io/)
+* [Meroxa](https://meroxa.com/)
 * [Metatron](https://metatron.app/)
 * [Microsoft](https://www.microsoft.com)
 * [Mulesoft](http://www.mulesoft.com)
