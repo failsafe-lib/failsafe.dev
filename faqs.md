@@ -26,7 +26,7 @@ For async work that needs to be scheduled with a delay, Failsafe will either use
 
 If no executor or scheduler is configured and the `ForkJoinPool.commonPool` has a parallelism of 1 (which occurs when the number of processors is <= 2), Failsafe will create and use an internal `ForkJoinPool` with a parallelism of 2 instead. This is necessary to support concurrent execution and `Timeout` checks. As with the internal `ScheduledExecutorService`, this  `ForkJoinPool` will only be created if needed, and will be shared across all Failsafe instances that don't configure an executor.
 
-## How to I throw an exception when retries are exceeded?
+## How do I throw an exception when retries are exceeded?
 
 When a `RetryPolicy` is exceeded, the last execution result or exception is returned or thrown. In the case that a result was returned but an exception is desired, the best approach is to wrap a RetryPolicy in a Fallback that converts a failed result into an exception:
 

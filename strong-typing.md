@@ -15,7 +15,7 @@ But for other policies you might declare a more specific result type:
 
 ```java
 RetryPolicy<HttpResponse> retryPolicy = RetryPolicy.<HttpResponse>builder()
-  .handleResultIf(response -> response.getStatusCode == 500)
+  .handleResultIf(response -> response.getStatusCode() == 500)
   .onFailedAttempt(e -> log.warn("Failed attempt: {}", e.getLastResult().getStatusCode()))
   .build();
 ```
