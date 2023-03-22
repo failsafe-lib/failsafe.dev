@@ -28,7 +28,7 @@ If no executor or scheduler is configured and the `ForkJoinPool.commonPool` has 
 
 ## How do I throw an exception when retries are exceeded?
 
-When a `RetryPolicy` is exceeded, the last execution result or exception is returned or thrown. In the case that a result was returned but an exception is desired, the best approach is to wrap a RetryPolicy in a Fallback that converts a failed result into an exception:
+When a `RetryPolicy` is exceeded, the last execution result or exception is returned or thrown. In the case that a result was returned but an exception is desired instead, the best approach is to wrap a `RetryPolicy` in a `Fallback` that converts a failed result into an exception:
 
 ```java
 // Retry on a null result
@@ -37,9 +37,9 @@ RetryPolicy<Connection> retryPolicy = RetryPolicy.<Connection>builder()
   .build();
   
 // Fallback on a null result with a ConnectException
-Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> {
-    return new ConnectException("Connection failed after retries");
-  })
+Fallback<Connection> fallback = Fallback.<Connection>builderOfException(e -> 
+    new ConnectException("Connection failed after retries")
+  )
   .handleResult(null)
   .build();
 
