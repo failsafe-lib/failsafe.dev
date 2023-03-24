@@ -24,7 +24,7 @@ RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
 
 ## Attempts
 
-By default, a [RetryPolicy] will perform a maximum of 3 execution attempts. You can configure a different max number of [attempts][max-attempts]:
+By default, a [RetryPolicy] will allow a maximum of 3 execution attempts. You can configure a different max number of [attempts][max-attempts]:
 
 ```java
 builder.withMaxAttempts(3);
