@@ -22,7 +22,7 @@ RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
   .build();
 ```
 
-## Attempts
+## Max Attempts
 
 By default, a [RetryPolicy] will allow a maximum of 3 execution attempts. You can configure a different max number of [attempts][max-attempts]:
 
@@ -34,6 +34,20 @@ Or a max number of [retries][max-retries]:
 
 ```java
 builder.withMaxRetries(2);
+```
+
+You can also disable the default max attempt limit:
+
+```java
+builder.withMaxAttempts(-1);
+```
+
+## Max Duration
+
+In addition to max attempts, you can also add a [max duration][max-duration] for an execution, after which retries will stop if the max attempts haven't already been reached.
+
+```java
+builder.withMaxDuration(Duration.ofMinutes(5));
 ```
 
 ## Delays
@@ -70,14 +84,6 @@ Or a [time based jitter][jitter-duration]:
 
 ```java
 builder.withJitter(Duration.ofMillis(100));
-```
-
-## Duration
-
-You can add a [max duration][max-duration] for an execution, after which retries will stop:
-
-```java
-builder.withMaxDuration(Duration.ofMinutes(5));
 ```
 
 To [cancel or interrupt][execution-cancellation] running executions, see the [Timeout][timeouts] policy.

@@ -53,9 +53,9 @@ CompletableFuture<Connection> future = Failsafe.with(retryPolicy).getAsync(() ->
 Multiple [policies] can be arbitrarily composed to add additional layers of resilience or to handle different failures in different ways:
 
 ```java
-Fallback<Object> fallback = Fallback.of(this::connectToBackup);
-CircuitBreaker<Object> circuitBreaker = CircuitBreaker.ofDefaults();
-Timeout<Object> timeout = Timeout.of(Duration.ofSeconds(10));
+var fallback = Fallback.of(this::connectToBackup);
+var circuitBreaker = CircuitBreaker.ofDefaults();
+var timeout = Timeout.of(Duration.ofSeconds(10));
 
 // Get with fallback, retries, circuit breaker, and timeout
 Failsafe.with(fallback)
