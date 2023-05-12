@@ -58,11 +58,7 @@ var circuitBreaker = CircuitBreaker.ofDefaults();
 var timeout = Timeout.of(Duration.ofSeconds(10));
 
 // Get with fallback, retries, circuit breaker, and timeout
-Failsafe.with(fallback)
-  .compose(retryPolicy)
-  .compose(circuitBreaker)
-  .compose(timeout)
-  .get(this::connect);
+Failsafe.with(fallback, retryPolicy, circuitBreaker, timeout).get(this::connect);
 ```
 
 Order does matter when composing policies. See the [policy composition][policy-composition] overview for more details.
