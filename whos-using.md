@@ -74,6 +74,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [CloudBees](https://www.cloudbees.com/)
 * [CloudWise](http://www.cloudwise.com)
 * [Commercetools](https://commercetools.com)
+* [Confluent](https://www.confluent.io/)
 * [ConsenSys](http://www.consensys.net)
 * [Coupang](https://rocketyourcareer.usa.coupang.com/)
 * [CQSE](https://www.cqse.eu/)
