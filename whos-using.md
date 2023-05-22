@@ -69,6 +69,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Brightcove](https://www.brightcove.com)
 * [CGI](https://www.cgi.com)
 * [Camunda]( http://camunda.com)
+* [Checkout.com](https://www.checkout.com/)
 * [CircleCI](https://circleci.com)
 * [Cisco](https://www.cisco.com/)
 * [CloudBees](https://www.cloudbees.com/)
