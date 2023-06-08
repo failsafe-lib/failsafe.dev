@@ -43,7 +43,6 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Presto](https://prestodb.io/)
 * [Redhat Zanata](http://zanata.org/)
 * [Selenium](https://www.selenium.dev/)
-* [Testify](http://testifyproject.org)
 * [Trino](https://trino.io/)
 * [Wasabi](https://github.com/intuit/wasabi)
 
@@ -69,6 +68,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Brightcove](https://www.brightcove.com)
 * [CGI](https://www.cgi.com)
 * [Camunda]( http://camunda.com)
+* [Catena-X](https://catena-x.net)
 * [Checkout.com](https://www.checkout.com/)
 * [CircleCI](https://circleci.com)
 * [Cisco](https://www.cisco.com/)
@@ -117,6 +117,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Palantir](https://www.palantir.com)
 * [Paradoxical](http://paradoxical.io/)
 * [Paychex](https://www.paychex.com/)
+* [Prefab](https://www.prefab.cloud/)
 * [Rackspace](https://www.rackspace.com/)
 * [Redhat](https://www.redhat.com)
 * [Rakam](https://rakam.io/)
@@ -136,6 +137,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 * [Swissquote](https://swissquote.com)
 * [Telstra](https://www.telstra.com.au/)
 * [TIBCO](https://www.tibco.com/)
+* [Timeplus](https://www.timeplus.com/)
 * [Tink](https://www.tink.com/)
 * [Tomtom](https://developer.tomtom.com)
 * [TouchTunes](http://touchtunes.com/)
@@ -156,6 +158,7 @@ Many projects, organizations, and governments use Failsafe. If you're a happy us
 ## Government / Education / Research
 
 {:.columns}
+* [AUS - NLA](https://www.nla.gov.au/)
 * [Denmark - DBC](https://www.dbc.dk)
 * [EU - UniProt](http://www.uniprot.org)
 * [Finland - VTT](https://www.vttresearch.com)
