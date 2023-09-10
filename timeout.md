@@ -31,7 +31,7 @@ When a `Timeout` is [composed][policy-composition] _outside_ a `RetryPolicy`, a 
 Failsafe.with(timeout).compose(retryPolicy).run(this::connect);
 ```
 
-When a `Timeout` is [composed][policy-composition] _inside_ a `RetryPolicy`, a timeout occurrence will not automically cancel any _outer_ retries:
+When a `Timeout` is [composed][policy-composition] _inside_ a `RetryPolicy`, a timeout occurrence will not automatically cancel any _outer_ retries:
 
 ```java
 Failsafe.with(retryPolicy).compose(timeout).run(this::connect);
