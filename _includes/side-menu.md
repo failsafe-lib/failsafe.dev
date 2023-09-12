@@ -25,7 +25,7 @@
 
 - Resources
   - [Javadocs][javadoc]
-  - [Gitter Chat][gitter]
+  - [Slack Chat][slack]
   - [Comparisons]({{ "/comparisons" | relative_url }})
   - [Who's Using Failsafe]({{ "/whos-using" | relative_url }})
   - [FAQs]({{ "/faqs" | relative_url }})
