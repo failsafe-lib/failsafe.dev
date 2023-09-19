@@ -4,7 +4,7 @@ title: Fault tolerance and resilience patterns for the JVM
 ---
 
 {: .callout }
-Failsafe 3.0 has been released! See the [changelog]({{ site.github-url }}/blob/master/CHANGELOG.md#30) for info on upgrading from 2.x.
+For Golang projects, [Failsafe-go] has been released! See the [project website][failsafe-go] for more info.
 
 # Overview
 
@@ -77,3 +77,5 @@ executor.run(this::connect);
 Read more about [policies] and how they're used, then explore some of Failsafe's other features in the site menu.
 
 {% include common-links.html %}
+
+[failsafe-go]: https://failsafe-go.dev
