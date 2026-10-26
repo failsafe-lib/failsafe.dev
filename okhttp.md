@@ -30,6 +30,33 @@ Response response = failsafeCall.execute();
 
 Failure handling works just as it does with any Failsafe execution.
 
+### Expiring Access Tokens
+
+An OkHttp `Call` retains its original `Request`. Failsafe executes that call on the first attempt and clones it for retries, so an `Authorization` header set when building the request also reuses the original token. To obtain a valid token after any policy delay, set the header in an OkHttp application interceptor:
+
+```java
+static OkHttpClient authenticatedClient(Supplier<String> accessTokenSupplier) {
+  return new OkHttpClient.Builder()
+    .addInterceptor(chain -> {
+      Request request = chain.request().newBuilder()
+        .header("Authorization", "Bearer " + accessTokenSupplier.get())
+        .build();
+      return chain.proceed(request);
+    })
+    .build();
+}
+```
+
+Here, `Supplier` is `java.util.function.Supplier`. Supply an application-owned callback that returns a currently valid token, refreshing it through your authentication provider when needed. The interceptor runs for each Failsafe attempt that reaches OkHttp, including asynchronous attempts:
+
+```java
+OkHttpClient client = authenticatedClient(accessTokenSupplier);
+Call call = client.newCall(request);
+FailsafeCall failsafeCall = FailsafeCall.with(retryPolicy, circuitBreaker).compose(call);
+```
+
+Keep the same Failsafe execution across retries so its retry budget and other policies remain in effect. Refreshing the token does not require rebuilding the `FailsafeCall` or its executor. If refresh depends on a server's `401` challenge, use an OkHttp `Authenticator` to handle that challenge; retrying a response alone does not refresh credentials.
+
 ### Async Execution
 
 Async execution can also be performed for a [FailsafeCall][FailsafeCall-okhttp], which returns a [CompletableFuture]:
